@@ -571,8 +571,9 @@ textarea.input:focus-visible {
 }
 
 .plan-card {
-  border: 2px solid transparent;
-  border-image: linear-gradient(to right, #4faaff, #ff925c) 1;
+  position: relative;
+  display: inline-block;
+
   border-radius: 10px;
   padding: 15px 20px;
   display: flex;
@@ -582,6 +583,22 @@ textarea.input:focus-visible {
   width: 100%;
   margin: auto;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.plan-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px; /* Скругляем углы */
+  padding: 2px; /* Толщина градиентной обводки */
+  background: linear-gradient(to right, #4faaff, #ff925c);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none; /* Обводка не перекрывает содержимое */
 }
 
 .plan-header {
