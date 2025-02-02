@@ -275,3 +275,29 @@ document.addEventListener("gesturechange", function (e) {
 document.addEventListener("gestureend", function (e) {
   e.preventDefault();
 });
+
+let currentSlideIndex = 0; // Текущий слайд
+const slides = document.querySelectorAll(".slide");
+
+function prevScreen() {
+  const currentScreen = screens[currentScreenIndex];
+  const previousScreen = screens[currentScreenIndex - 1];
+
+  if (previousScreen) {
+    // Анимация ухода текущего экрана
+    currentScreen.classList.add("exiting");
+    currentScreen.classList.remove("active"); // Убираем "active" после добавления "exiting"
+
+    // Анимация появления предыдущего экрана
+    previousScreen.classList.add("entering");
+
+    // Задержка для завершения анимации "exiting"
+    setTimeout(() => {
+      currentScreen.classList.remove("exiting"); // Убираем "exiting" после скрытия
+      previousScreen.classList.remove("entering"); // Убираем "entering" после показа
+      previousScreen.classList.add("active"); // Предыдущий экран становится активным
+    }, 500); // Длительность совпадает с transition в CSS
+
+    currentScreenIndex--; // Переходим к предыдущему экрану
+  }
+}

@@ -161,6 +161,7 @@
             <span class="check-circle"></span>
           </label>
         </div>
+        <button class="back-button" onclick="prevScreen()">Back</button>
       </div>
     </div>
 
@@ -208,6 +209,7 @@
             <span class="check-circle"></span>
           </label>
         </div>
+        <button class="back-button" onclick="prevScreen()">Back</button>
       </div>
     </div>
 
@@ -259,6 +261,7 @@ connection"
             <span class="check-circle"></span>
           </label>
         </div>
+        <button class="back-button" onclick="prevScreen()">Back</button>
       </div>
     </div>
 
@@ -298,6 +301,7 @@ understanding each other"
             <span class="check-circle"></span>
           </label>
         </div>
+        <button class="back-button" onclick="prevScreen()">Back</button>
       </div>
     </div>
 
@@ -344,6 +348,7 @@ a real problem"
             <span class="check-circle"></span>
           </label>
         </div>
+        <button class="back-button" onclick="prevScreen()">Back</button>
       </div>
     </div>
 
@@ -412,6 +417,7 @@ conflict"
             <span class="check-circle"></span>
           </label>
         </div>
+        <button class="back-button" onclick="prevScreen()">Back</button>
       </div>
     </div>
 
@@ -451,6 +457,7 @@ my emotions"
             <span class="check-circle"></span>
           </label>
         </div>
+        <button class="back-button" onclick="prevScreen()">Back</button>
       </div>
     </div>
 
@@ -500,6 +507,7 @@ for my efforts"
             <span class="check-circle"></span>
           </label>
         </div>
+        <button class="back-button" onclick="prevScreen()">Back</button>
       </div>
     </div>
 
@@ -542,6 +550,7 @@ for my efforts"
             <span class="check-circle"></span>
           </label>
         </div>
+        <button class="back-button" onclick="prevScreen()">Back</button>
       </div>
     </div>
 
@@ -627,6 +636,7 @@ closeness"
             <span class="check-circle"></span>
           </label>
         </div>
+        <button class="back-button" onclick="prevScreen()">Back</button>
       </div>
     </div>
 
@@ -678,6 +688,7 @@ with communication"
             <span class="check-circle"></span>
           </label>
         </div>
+        <button class="back-button" onclick="prevScreen()">Back</button>
       </div>
     </div>
 
@@ -694,12 +705,15 @@ with communication"
             class="input"
             data-button="next-btn-1"
             placeholder="Type your answer"></textarea>
-          <button
-            id="next-btn-1"
-            class="button hidden button-next"
-            onclick="saveAndNext('partner-question')">
-            Next
-          </button>
+          <div class="d-flex">
+            <button
+              id="next-btn-1"
+              class="button hidden button-next"
+              onclick="saveAndNext('partner-question')">
+              Next
+            </button>
+            <button class="back-button" onclick="prevScreen()">Back</button>
+          </div>
         </div>
       </div>
     </div>
@@ -748,6 +762,7 @@ with communication"
             <span class="check-circle"></span>
           </label>
         </div>
+        <button class="back-button" onclick="prevScreen()">Back</button>
       </div>
     </div>
     <!-- Screen 18 -->
@@ -813,6 +828,7 @@ with communication"
             <span class="check-circle"></span>
           </label>
         </div>
+        <button class="back-button" onclick="prevScreen()">Back</button>
       </div>
     </div>
 
@@ -862,6 +878,7 @@ with communication"
             <span class="check-circle"></span>
           </label>
         </div>
+        <button class="back-button" onclick="prevScreen()">Back</button>
       </div>
     </div>
 
@@ -877,12 +894,15 @@ with communication"
             class="input"
             data-button="next-btn-2"
             placeholder="Describe the situation you want to resolve"></textarea>
-          <button
-            id="next-btn-2"
-            class="button hidden button-next"
-            onclick="saveAndNext('relationship-situation')">
-            Next
-          </button>
+          <div class="d-flex">
+            <button
+              id="next-btn-2"
+              class="button hidden button-next"
+              onclick="saveAndNext('relationship-situation')">
+              Next
+            </button>
+            <button class="back-button" onclick="prevScreen()">Back</button>
+          </div>
         </div>
       </div>
     </div>
@@ -899,12 +919,15 @@ with communication"
             class="input"
             data-button="next-btn-3"
             placeholder="Type your answer"></textarea>
-          <button
-            id="next-btn-3"
-            class="button hidden button-next"
-            onclick="saveAndNext('improve-relationship')">
-            Next
-          </button>
+          <div class="d-flex">
+            <button
+              id="next-btn-3"
+              class="button hidden button-next"
+              onclick="saveAndNext('improve-relationship')">
+              Next
+            </button>
+            <button class="back-button" onclick="prevScreen()">Back</button>
+          </div>
         </div>
       </div>
     </div>
@@ -955,6 +978,7 @@ with communication"
             <span class="check-circle"></span>
           </label>
         </div>
+        <button class="back-button" onclick="prevScreen()">Back</button>
       </div>
     </div>
 
@@ -1004,6 +1028,7 @@ my feelings"
             <span class="check-circle"></span>
           </label>
         </div>
+        <button class="back-button" onclick="prevScreen()">Back</button>
       </div>
     </div>
     <!-- Screen 24 -->
@@ -1133,13 +1158,14 @@ my feelings"
             class="input"
             data-button="next-btn-4"
             placeholder="Type your answer"></textarea>
-          <div>
+          <div class="d-flex">
             <button
               id="next-btn-4"
               class="button hidden button-next"
               onclick="saveAndNext('email')">
               Next
             </button>
+            <button class="back-button" onclick="prevScreen()">Back</button>
           </div>
         </div>
         <div class="mail_block">
