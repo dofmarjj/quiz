@@ -63,7 +63,7 @@ body {
 
 .container.active {
   display: block;
-  padding: 100px 25px 100px;
+  padding: 50px 25px 100px;
 }
 
 .title {
