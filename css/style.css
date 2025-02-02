@@ -522,7 +522,8 @@ textarea.input:focus-visible {
   max-width: 130px;
   margin: 0 auto 10px;
   display: block;
-  height: max-content;
+  max-height: 160px;
+  /* height: 100%; */
 }
 
 .issues-list,
