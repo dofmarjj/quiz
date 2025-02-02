@@ -1,0 +1,182 @@
+.payment-container {
+  padding: 20px;
+  text-align: center;
+  background-color: #e9f1fa;
+  border-radius: 15px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.payment-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.card-options {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.method-options {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.method-option {
+  max-width: 90px;
+  width: 100%;
+  background: white;
+  border: 2px solid #dcdcdc;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.method-option:hover {
+  border-color: #4faaff;
+}
+
+.applepay-button {
+  width: 100%;
+  background: black;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.guard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.guard-description {
+  font-size: 10px;
+  color: black;
+}
+
+.charge-info {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.charge-info .highlight {
+  color: #ff925c;
+  font-weight: bold;
+}
+
+.security-logos img {
+  /* margin: 5px; */
+  width: 100%;
+}
+
+.security-logos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.security-logos__block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 90px;
+  max-height: 45px;
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.card-form {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.card-form label {
+  font-size: 8px;
+  color: #828692;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.card-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+}
+
+.card-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.payment-button {
+  width: 100%;
+  background: #254aa5;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  padding: 28px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.payment-button:hover {
+  background: #2549a5c8;
+  transition: 0.4s;
+}
+
+.success-button {
+  background: #28a745;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: default;
+}
+
+.method-option {
+  min-height: 45px;
+  background: white;
+  border: 2px solid #dcdcdc;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.method-option.selected {
+  border-color: #4faaff;
+  box-shadow: 0 0 10px rgba(79, 170, 255, 0.5);
+}
+
+.method-option:hover {
+  border-color: #4faaff;
+}

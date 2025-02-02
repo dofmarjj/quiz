@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz UI</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Screen 1 -->
+    <div class="container active" id="screen-1">
+      <div class="title">
+        Stop Miscommunication & Endless Arguments - Let AI Help You Understand
+        Each Other
+      </div>
+      <div class="subtitle">3-Minute Personal Assessment</div>
+      <div class="prompt">I am...</div>
+      <div class="characters">
+        <div class="character">
+          <img src="./images/male.png" alt="Male" />
+          <button
+            class="button-main btn-male"
+            onclick="nextScreen('gender','Male')">
+            Male
+            <span class="arrow"
+              ><svg
+                width="8"
+                height="12"
+                viewBox="0 0 8 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1.57812 10.6161L6.10813 5.93881M1.61444 1.74609L6.10369 5.93881"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </span>
+          </button>
+        </div>
+
+        <div class="character">
+          <img src="./images/female.png" alt="Female" />
+          <button
+            class="button-main btn-female"
+            onclick="nextScreen('gender','Female')">
+            Female
+            <span class="arrow"
+              ><svg
+                width="8"
+                height="12"
+                viewBox="0 0 8 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1.57812 10.6161L6.10813 5.93881M1.61444 1.74609L6.10369 5.93881"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </span>
+          </button>
+          <!-- <button
+    class="button-main female-btn"
+    onclick="nextScreen('gender','Female')">
+    Female
+  </button> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen 2 -->
+
+    <div class="container screen" id="screen-2">
+      <div class="_block">
+        <div class="title">
+          100,000+ people are already improving their relationships with Feelu!
+        </div>
+        <img src="./images/couple-picture.png" alt="" />
+        <div class="subtitle">
+          "Over 92% of users say AI helped them improve communication. AI-driven
+          relationship insights that actually make a difference."
+        </div>
+        <span
+          ><svg
+            width="129"
+            height="37"
+            viewBox="0 0 129 37"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M16.9157 10.4873V3.21458H18.6735V6.13361H21.5392V3.21458H23.2935V10.4873H21.5392V7.56472H18.6735V10.4873H16.9157ZM25.9693 10.4873H24.0801L26.5339 3.21458H28.8741L31.3279 10.4873H29.4387L27.7306 5.04696H27.6738L25.9693 10.4873ZM25.7172 7.62509H29.666V8.96032H25.7172V7.62509ZM32.111 10.4873V3.21458H35.1152C35.6597 3.21458 36.1297 3.31283 36.525 3.50932C36.9228 3.70345 37.2293 3.98281 37.4448 4.34739C37.6602 4.70961 37.7679 5.13929 37.7679 5.63645C37.7679 6.14071 37.6578 6.56922 37.4377 6.92196C37.2175 7.27234 36.905 7.53986 36.5002 7.72452C36.0953 7.90681 35.6159 7.99796 35.062 7.99796H33.1621V6.61301H34.7353C35.0004 6.61301 35.2218 6.57869 35.3993 6.51003C35.5792 6.43901 35.7154 6.33248 35.8077 6.19043C35.9 6.04602 35.9462 5.86136 35.9462 5.63645C35.9462 5.41155 35.9 5.2257 35.8077 5.07892C35.7154 4.92978 35.5792 4.81851 35.3993 4.74512C35.2194 4.66936 34.998 4.63148 34.7353 4.63148H33.8688V10.4873H32.111ZM36.2054 7.16344L38.0165 10.4873H36.0989L34.3233 7.16344H36.2054ZM40.1685 3.21458L41.7949 8.54128H41.8553L43.4817 3.21458H45.449L42.9952 10.4873H40.655L38.2012 3.21458H40.1685ZM46.7212 10.4873H44.832L47.2859 3.21458H49.6261L52.0799 10.4873H50.1907L48.4826 5.04696H48.4258L46.7212 10.4873ZM46.4691 7.62509H50.418V8.96032H46.4691V7.62509ZM52.8629 10.4873V3.21458H55.8672C56.4117 3.21458 56.8816 3.31283 57.277 3.50932C57.6747 3.70345 57.9813 3.98281 58.1967 4.34739C58.4122 4.70961 58.5199 5.13929 58.5199 5.63645C58.5199 6.14071 58.4098 6.56922 58.1896 6.92196C57.9695 7.27234 57.657 7.53986 57.2521 7.72452C56.8473 7.90681 56.3679 7.99796 55.8139 7.99796H53.9141V6.61301H55.4872C55.7524 6.61301 55.9737 6.57869 56.1513 6.51003C56.3312 6.43901 56.4673 6.33248 56.5597 6.19043C56.652 6.04602 56.6982 5.86136 56.6982 5.63645C56.6982 5.41155 56.652 5.2257 56.5597 5.07892C56.4673 4.92978 56.3312 4.81851 56.1513 4.74512C55.9714 4.66936 55.75 4.63148 55.4872 4.63148H54.6207V10.4873H52.8629ZM56.9574 7.16344L58.7685 10.4873H56.8509L55.0753 7.16344H56.9574ZM62.1722 10.4873H59.484V3.21458H62.1687C62.9097 3.21458 63.5477 3.36017 64.0827 3.65137C64.6201 3.94019 65.0344 4.35686 65.3256 4.90137C65.6168 5.44351 65.7624 6.09218 65.7624 6.84739C65.7624 7.60497 65.6168 8.25601 65.3256 8.80051C65.0368 9.34502 64.6237 9.76287 64.0863 10.0541C63.5489 10.3429 62.9109 10.4873 62.1722 10.4873ZM61.2418 8.98873H62.1048C62.512 8.98873 62.8564 8.92007 63.1381 8.78276C63.4222 8.64308 63.6365 8.41699 63.7809 8.10449C63.9277 7.78962 64.0011 7.37059 64.0011 6.84739C64.0011 6.32419 63.9277 5.90752 63.7809 5.59739C63.6341 5.28489 63.4175 5.05998 63.131 4.92267C62.8469 4.783 62.4966 4.71316 62.0799 4.71316H61.2418V8.98873ZM1.26136 22.4873V15.2146H4.29403C4.83854 15.2146 5.29427 15.2915 5.66122 15.4454C6.03054 15.5993 6.30753 15.8147 6.49219 16.0917C6.67921 16.3687 6.77273 16.6895 6.77273 17.0541C6.77273 17.3311 6.71473 17.5785 6.59872 17.7963C6.48272 18.0117 6.32292 18.1904 6.11932 18.3325C5.91572 18.4745 5.68016 18.574 5.41264 18.6308V18.7018C5.7062 18.716 5.97727 18.7953 6.22585 18.9397C6.4768 19.0841 6.67803 19.2854 6.82955 19.5434C6.98106 19.7991 7.05682 20.1021 7.05682 20.4525C7.05682 20.8431 6.95739 21.1923 6.75852 21.5001C6.55966 21.8055 6.27202 22.047 5.8956 22.2245C5.51918 22.3997 5.06226 22.4873 4.52486 22.4873H1.26136ZM3.01918 21.0704H4.10582C4.48698 21.0704 4.76752 20.9982 4.94744 20.8538C5.12974 20.7094 5.22088 20.5081 5.22088 20.2501C5.22088 20.0631 5.17708 19.9021 5.08949 19.7671C5.00189 19.6298 4.8776 19.5245 4.71662 19.4511C4.55563 19.3753 4.36269 19.3374 4.13778 19.3374H3.01918V21.0704ZM3.01918 18.2046H3.99219C4.18395 18.2046 4.3544 18.1727 4.50355 18.1088C4.6527 18.0448 4.7687 17.9525 4.85156 17.8318C4.93679 17.711 4.9794 17.5654 4.9794 17.395C4.9794 17.1511 4.89299 16.9594 4.72017 16.8197C4.54735 16.68 4.31416 16.6102 4.0206 16.6102H3.01918V18.2046ZM7.90199 22.4873V15.2146H12.973V16.6421H9.6598V18.1336H12.7138V19.5647H9.6598V21.0597H12.973V22.4873H7.90199ZM14.0739 22.4873V15.2146H15.8317V18.1336H18.6974V15.2146H20.4517V22.4873H18.6974V19.5647H15.8317V22.4873H14.0739ZM23.1275 22.4873H21.2383L23.6921 15.2146H26.0323L28.4862 22.4873H26.5969L24.8888 17.047H24.832L23.1275 22.4873ZM22.8754 19.6251H26.8242V20.9603H22.8754V19.6251ZM29.9439 15.2146L31.5703 20.5413H31.6307L33.2571 15.2146H35.2244L32.7706 22.4873H30.4304L27.9766 15.2146H29.9439ZM37.7653 15.2146V22.4873H36.0075V15.2146H37.7653ZM45.7331 18.8509C45.7331 19.6511 45.5792 20.3294 45.2715 20.8857C44.9637 21.4421 44.5471 21.8647 44.0215 22.1535C43.4983 22.4423 42.9112 22.5867 42.2601 22.5867C41.6067 22.5867 41.0184 22.4411 40.4952 22.1499C39.972 21.8588 39.5565 21.4362 39.2488 20.8822C38.9434 20.3258 38.7907 19.6488 38.7907 18.8509C38.7907 18.0508 38.9434 17.3725 39.2488 16.8161C39.5565 16.2598 39.972 15.8372 40.4952 15.5484C41.0184 15.2596 41.6067 15.1151 42.2601 15.1151C42.9112 15.1151 43.4983 15.2596 44.0215 15.5484C44.5471 15.8372 44.9637 16.2598 45.2715 16.8161C45.5792 17.3725 45.7331 18.0508 45.7331 18.8509ZM43.9363 18.8509C43.9363 18.3775 43.8688 17.9774 43.7338 17.6507C43.6013 17.324 43.4095 17.0766 43.1586 16.9085C42.91 16.7404 42.6105 16.6563 42.2601 16.6563C41.9121 16.6563 41.6126 16.7404 41.3617 16.9085C41.1107 17.0766 40.9178 17.324 40.7828 17.6507C40.6503 17.9774 40.584 18.3775 40.584 18.8509C40.584 19.3244 40.6503 19.7245 40.7828 20.0512C40.9178 20.3779 41.1107 20.6253 41.3617 20.7934C41.6126 20.9615 41.9121 21.0455 42.2601 21.0455C42.6105 21.0455 42.91 20.9615 43.1586 20.7934C43.4095 20.6253 43.6013 20.3779 43.7338 20.0512C43.8688 19.7245 43.9363 19.3244 43.9363 18.8509ZM46.7594 22.4873V15.2146H49.7637C50.3082 15.2146 50.7781 15.3128 51.1735 15.5093C51.5712 15.7035 51.8778 15.9828 52.0932 16.3474C52.3087 16.7096 52.4164 17.1393 52.4164 17.6365C52.4164 18.1407 52.3063 18.5692 52.0861 18.922C51.8659 19.2723 51.5534 19.5399 51.1486 19.7245C50.7438 19.9068 50.2644 19.998 49.7104 19.998H47.8105V18.613H49.3837C49.6489 18.613 49.8702 18.5787 50.0478 18.51C50.2277 18.439 50.3638 18.3325 50.4561 18.1904C50.5485 18.046 50.5946 17.8614 50.5946 17.6365C50.5946 17.4115 50.5485 17.2257 50.4561 17.0789C50.3638 16.9298 50.2277 16.8185 50.0478 16.7451C49.8678 16.6694 49.6465 16.6315 49.3837 16.6315H48.5172V22.4873H46.7594ZM50.8539 19.1634L52.665 22.4873H50.7473L48.9718 19.1634H50.8539ZM54.9537 22.4873H53.0645L55.5183 15.2146H57.8585L60.3123 22.4873H58.4231L56.715 17.047H56.6582L54.9537 22.4873ZM54.7015 19.6251H58.6504V20.9603H54.7015V19.6251ZM61.0953 22.4873V15.2146H62.8532V21.0597H65.8787V22.4873H61.0953ZM11.7985 34.4873V27.2146H14.8027C15.3472 27.2146 15.8172 27.3128 16.2125 27.5093C16.6103 27.7035 16.9168 27.9828 17.1323 28.3474C17.3477 28.7096 17.4554 29.1393 17.4554 29.6365C17.4554 30.1407 17.3453 30.5692 17.1252 30.922C16.905 31.2723 16.5925 31.5399 16.1877 31.7245C15.7828 31.9068 15.3034 31.998 14.7495 31.998H12.8496V30.613H14.4228C14.6879 30.613 14.9093 30.5787 15.0868 30.51C15.2667 30.439 15.4029 30.3325 15.4952 30.1904C15.5875 30.046 15.6337 29.8614 15.6337 29.6365C15.6337 29.4115 15.5875 29.2257 15.4952 29.0789C15.4029 28.9298 15.2667 28.8185 15.0868 28.7451C14.9069 28.6694 14.6855 28.6315 14.4228 28.6315H13.5563V34.4873H11.7985ZM15.8929 31.1634L17.704 34.4873H15.7864L14.0108 31.1634H15.8929ZM18.4196 34.4873V27.2146H23.4906V28.6421H20.1774V30.1336H23.2314V31.5647H20.1774V33.0597H23.4906V34.4873H18.4196ZM28.5225 29.395C28.4989 29.1346 28.3935 28.9321 28.2065 28.7877C28.0218 28.641 27.7579 28.5676 27.4146 28.5676C27.1873 28.5676 26.9979 28.5972 26.8464 28.6563C26.6949 28.7155 26.5813 28.7972 26.5055 28.9014C26.4297 29.0032 26.3907 29.1204 26.3883 29.2529C26.3836 29.3618 26.4049 29.4577 26.4522 29.5406C26.502 29.6234 26.573 29.6968 26.6653 29.7607C26.76 29.8223 26.8736 29.8767 27.0062 29.9241C27.1388 29.9714 27.2879 30.0129 27.4537 30.0484L28.0787 30.1904C28.4385 30.2686 28.7557 30.3727 29.0304 30.5029C29.3074 30.6331 29.5394 30.7882 29.7264 30.9681C29.9158 31.1481 30.059 31.3552 30.1561 31.5896C30.2531 31.824 30.3029 32.0867 30.3052 32.3779C30.3029 32.8372 30.1868 33.2314 29.9572 33.5605C29.7276 33.8895 29.3973 34.1417 28.9664 34.3169C28.5379 34.492 28.0207 34.5796 27.4146 34.5796C26.8062 34.5796 26.2759 34.4885 25.8237 34.3062C25.3715 34.1239 25.0199 33.8469 24.769 33.4752C24.5181 33.1035 24.389 32.6336 24.3819 32.0654H26.0652C26.0794 32.2998 26.1421 32.4951 26.2534 32.6514C26.3646 32.8076 26.5173 32.926 26.7115 33.0065C26.908 33.087 27.1352 33.1272 27.3933 33.1272C27.63 33.1272 27.8313 33.0953 27.997 33.0313C28.1651 32.9674 28.2941 32.8786 28.3841 32.765C28.474 32.6514 28.5202 32.5212 28.5225 32.3744C28.5202 32.2371 28.4776 32.1199 28.3947 32.0228C28.3118 31.9234 28.184 31.8382 28.0112 31.7671C27.8407 31.6937 27.6229 31.6263 27.3578 31.5647L26.5978 31.3872C25.9681 31.2427 25.4721 31.0096 25.1099 30.6876C24.7477 30.3633 24.5678 29.9253 24.5701 29.3737C24.5678 28.9239 24.6885 28.5297 24.9324 28.1911C25.1762 27.8526 25.5136 27.5886 25.9444 27.3992C26.3753 27.2098 26.8665 27.1151 27.4181 27.1151C27.9816 27.1151 28.4705 27.211 28.8848 27.4028C29.3014 27.5922 29.6246 27.8585 29.8542 28.2018C30.0839 28.5451 30.2011 28.9428 30.2058 29.395H28.5225ZM31.193 34.4873V27.2146H36.264V28.6421H32.9508V30.1336H36.0048V31.5647H32.9508V33.0597H36.264V34.4873H31.193ZM38.938 34.4873H37.0488L39.5027 27.2146H41.8429L44.2967 34.4873H42.4075L40.6994 29.047H40.6426L38.938 34.4873ZM38.6859 31.6251H42.6348V32.9603H38.6859V31.6251ZM45.0797 34.4873V27.2146H48.084C48.6285 27.2146 49.0984 27.3128 49.4938 27.5093C49.8915 27.7035 50.1981 27.9828 50.4135 28.3474C50.629 28.7096 50.7367 29.1393 50.7367 29.6365C50.7367 30.1407 50.6266 30.5692 50.4064 30.922C50.1863 31.2723 49.8738 31.5399 49.4689 31.7245C49.0641 31.9068 48.5847 31.998 48.0307 31.998H46.1309V30.613H47.704C47.9692 30.613 48.1905 30.5787 48.3681 30.51C48.548 30.439 48.6841 30.3325 48.7765 30.1904C48.8688 30.046 48.915 29.8614 48.915 29.6365C48.915 29.4115 48.8688 29.2257 48.7765 29.0789C48.6841 28.9298 48.548 28.8185 48.3681 28.7451C48.1882 28.6694 47.9668 28.6315 47.704 28.6315H46.8375V34.4873H45.0797ZM49.1742 31.1634L50.9853 34.4873H49.0676L47.2921 31.1634H49.1742ZM58.3024 29.8495H56.5268C56.5031 29.6672 56.4546 29.5027 56.3812 29.3559C56.3078 29.2091 56.2108 29.0837 56.09 28.9795C55.9693 28.8753 55.8261 28.796 55.6603 28.7416C55.497 28.6847 55.3159 28.6563 55.117 28.6563C54.7643 28.6563 54.46 28.7427 54.2044 28.9156C53.9511 29.0884 53.7557 29.3382 53.6184 29.6649C53.4835 29.9916 53.416 30.3869 53.416 30.8509C53.416 31.3339 53.4847 31.7387 53.622 32.0654C53.7617 32.3898 53.957 32.6348 54.2079 32.8005C54.4612 32.9639 54.7607 33.0455 55.1064 33.0455C55.3005 33.0455 55.4769 33.0207 55.6355 32.971C55.7965 32.9213 55.9373 32.849 56.0581 32.7544C56.1812 32.6573 56.2818 32.5401 56.3599 32.4028C56.4404 32.2631 56.496 32.1057 56.5268 31.9305L58.3024 31.9411C58.2716 32.2631 58.1781 32.5803 58.0218 32.8928C57.868 33.2053 57.6561 33.4906 57.3862 33.7487C57.1163 34.0044 56.7872 34.2079 56.399 34.3595C56.0131 34.511 55.5704 34.5867 55.0708 34.5867C54.4127 34.5867 53.8232 34.4423 53.3024 34.1535C52.7839 33.8623 52.3743 33.4385 52.0737 32.8822C51.773 32.3258 51.6227 31.6488 51.6227 30.8509C51.6227 30.0508 51.7754 29.3725 52.0808 28.8161C52.3862 28.2598 52.7993 27.8372 53.3201 27.5484C53.841 27.2596 54.4245 27.1151 55.0708 27.1151C55.5112 27.1151 55.9184 27.1767 56.2924 27.2998C56.6665 27.4205 56.9956 27.5981 57.2797 27.8325C57.5637 28.0645 57.7946 28.3498 57.9721 28.6883C58.1497 29.0268 58.2598 29.4139 58.3024 29.8495ZM59.3082 34.4873V27.2146H61.0661V30.1336H63.9318V27.2146H65.6861V34.4873H63.9318V31.5647H61.0661V34.4873H59.3082Z"
+              fill="white" />
+            <path
+              d="M88.4185 24.3262V9.78072H91.4938V15.7821H97.7367V9.78072H100.805V24.3262H97.7367V18.3176H91.4938V24.3262H88.4185ZM103.34 24.3262V9.78072H109.164C110.234 9.78072 111.127 9.93933 111.842 10.2566C112.557 10.5738 113.094 11.0141 113.454 11.5776C113.814 12.1363 113.994 12.7802 113.994 13.5094C113.994 14.0776 113.88 14.5771 113.653 15.008C113.426 15.4341 113.113 15.7845 112.715 16.0591C112.322 16.329 111.873 16.5208 111.366 16.6344V16.7765C111.92 16.8001 112.438 16.9564 112.921 17.2452C113.409 17.534 113.804 17.9389 114.107 18.4597C114.41 18.9758 114.562 19.5913 114.562 20.3063C114.562 21.0781 114.37 21.767 113.987 22.373C113.608 22.9744 113.047 23.4502 112.303 23.8006C111.56 24.151 110.644 24.3262 109.555 24.3262H103.34ZM106.416 21.812H108.923C109.78 21.812 110.405 21.6486 110.798 21.3219C111.191 20.9905 111.387 20.5501 111.387 20.0009C111.387 19.5984 111.29 19.2433 111.096 18.9355C110.902 18.6278 110.625 18.3863 110.265 18.2111C109.91 18.0359 109.486 17.9483 108.994 17.9483H106.416V21.812ZM106.416 15.8674H108.695C109.117 15.8674 109.491 15.794 109.818 15.6472C110.149 15.4957 110.41 15.2826 110.599 15.008C110.793 14.7334 110.89 14.4043 110.89 14.0208C110.89 13.4952 110.703 13.0714 110.329 12.7495C109.96 12.4275 109.434 12.2665 108.752 12.2665H106.416V15.8674ZM116.563 24.3262V9.78072H122.302C123.4 9.78072 124.338 9.97721 125.114 10.3702C125.895 10.7585 126.49 11.3101 126.897 12.025C127.309 12.7353 127.515 13.571 127.515 14.5321C127.515 15.498 127.306 16.329 126.89 17.025C126.473 17.7163 125.869 18.2466 125.079 18.6159C124.293 18.9853 123.341 19.1699 122.224 19.1699H118.381V16.6983H121.726C122.314 16.6983 122.801 16.6178 123.189 16.4569C123.578 16.2959 123.867 16.0544 124.056 15.7324C124.25 15.4105 124.347 15.0104 124.347 14.5321C124.347 14.0492 124.25 13.642 124.056 13.3105C123.867 12.9791 123.575 12.7282 123.182 12.5577C122.794 12.3825 122.304 12.2949 121.712 12.2949H119.638V24.3262H116.563ZM124.418 17.7069L128.033 24.3262H124.638L121.101 17.7069H124.418Z"
+              fill="white" />
+            <path d="M76.7344 0.487305L76.5229 34.1643" stroke="white" />
+          </svg>
+        </span>
+        <button class="button next-btn mt-20" onclick="nextScreen()">
+          Continue
+        </button>
+      </div>
+    </div>
+
+    <!-- Screen 3 -->
+    <div class="container" id="screen-3">
+      <div class="title">How would you describe your current relationship?</div>
+      <div class="options">
+        <label class="option">
+          <span>Happy and stable</span>
+          <input
+            type="radio"
+            name="relationship"
+            value="Happy and stable"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>We have some challenges that need to be addressed</span>
+          <input
+            type="radio"
+            name="relationship"
+            value="Challenges"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>We are in crisis or close to breaking up</span>
+          <input
+            type="radio"
+            name="relationship"
+            value="Crisis"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>I’m not in a relationship right now, but I’d like to be</span>
+          <input
+            type="radio"
+            name="relationship"
+            value="Not in relationship"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Screen 4 -->
+    <div class="container" id="screen-4">
+      <div class="title">
+        What is the most important thing for you in a relationship?
+      </div>
+      <div class="options">
+        <label class="option">
+          <span>Trust</span>
+          <input
+            type="radio"
+            name="important"
+            value="Trust"
+            onclick="delayedNextScreen(' What is the most important thing for you in a relationship?', 'Trust')" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Support and understanding</span>
+          <input
+            type="radio"
+            name="important"
+            value="Support and understanding"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Communication and openness</span>
+          <input
+            type="radio"
+            name="important"
+            value="Communication and openness"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Passion and emotional connection</span>
+          <input
+            type="radio"
+            name="important"
+            value="Passion and emotional connection"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Screen 5 -->
+    <div class="container" id="screen-5">
+      <div class="title">
+        What challenges do you face most often in your relationship?
+      </div>
+      <div class="options">
+        <label class="option">
+          <span>Miscommunication or lack of understanding</span>
+          <input
+            type="radio"
+            name="important"
+            value="Miscommunication or lack
+of understanding"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Jealousy or feelings of insecurity</span>
+          <input
+            type="radio"
+            name="important"
+            value="Jealousy or feelings
+of insecurity"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Frequent arguments over small things</span>
+          <input
+            type="radio"
+            name="important"
+            value="Frequent arguments over
+small things"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Loss of intimacy and emotional connection</span>
+          <input
+            type="radio"
+            name="important"
+            value="Loss of intimacy and emotional
+connection"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Screen 6 -->
+    <div class="container" id="screen-6">
+      <div class="title">
+        Do you feel like your partner truly understands you?
+      </div>
+      <div class="options">
+        <label class="option">
+          <span>Yes, most of the time</span>
+          <input
+            type="radio"
+            name="important"
+            value="Yes, most of the time"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Sometimes, but not always</span>
+          <input
+            type="radio"
+            name="important"
+            value="Sometimes, but not always"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>No, we often struggle with understanding each other</span>
+          <input
+            type="radio"
+            name="important"
+            value="No, we often struggle with
+understanding each other"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Screen 7 -->
+    <div class="container" id="screen-7">
+      <div class="title">How often do you argue with your partner?</div>
+      <div class="options">
+        <label class="option">
+          <span>Almost never</span>
+          <input
+            type="radio"
+            name="important"
+            value="Almost never"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>A few times a month</span>
+          <input
+            type="radio"
+            name="important"
+            value="AA few times a month"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Almost every week</span>
+          <input
+            type="radio"
+            name="important"
+            value="Almost every week"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Very often - it has become a real problem</span>
+          <input
+            type="radio"
+            name="important"
+            value="Very often - it has become
+a real problem"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Screen 8 -->
+    <div class="container screen" id="screen-8">
+      <img src="./images/man-girl.png" alt="man-girl" class="illustration" />
+      <div class="title">Great! You just set your first goal!</div>
+      <div class="subtitle">
+        Let's keep going so we can get to know you better.
+      </div>
+      <div class="buttons">
+        <button class="button-goal" onclick="nextScreen()">Next</button>
+        <button class="button-goal back" onclick="resetToFirstScreen()">
+          Back
+        </button>
+      </div>
+    </div>
+
+    <!-- Screen 9 -->
+    <div class="container" id="screen-9">
+      <div class="title">How do you handle conflicts?</div>
+      <div class="options">
+        <label class="option">
+          <span>I try to talk things through and resolve them immediately</span>
+          <input
+            type="radio"
+            name="important"
+            value="I try to talk things through and resolve
+them immediately"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>I withdraw and find it hard to talk about problems</span>
+          <input
+            type="radio"
+            name="important"
+            value="I withdraw and find it hard to talk
+about problems"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>I sometimes react emotionally and regret it later</span>
+          <input
+            type="radio"
+            name="important"
+            value="I sometimes react emotionally
+and regret it later"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>I avoid discussions to prevent conflict</span>
+          <input
+            type="radio"
+            name="important"
+            value="I avoid discussions to prevent
+conflict"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Screen 10 -->
+    <div class="container" id="screen-10">
+      <div class="title">Do you find it easy to express your emotions?</div>
+      <div class="options">
+        <label class="option">
+          <span>Yes, I can talk about my feelings easily</span>
+          <input
+            type="radio"
+            name="important"
+            value="Yes, I can talk about my 
+feelings easily"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Sometimes, but I struggle to find the right words</span>
+          <input
+            type="radio"
+            name="important"
+            value="Sometimes, but I struggle to find
+the right words"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>No, it’s difficult for me to share my emotions</span>
+          <input
+            type="radio"
+            name="important"
+            value="No, it’s difficult for me to share
+my emotions"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Screen 11 -->
+    <div class="container" id="screen-11">
+      <div class="title">
+        What do you need from your partner to feel comfortable in the
+        relationship?
+      </div>
+      <div class="options">
+        <label class="option">
+          <span>Attention and care</span>
+          <input
+            type="radio"
+            name="important"
+            value="Attention and care"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Emotional support</span>
+          <input
+            type="radio"
+            name="important"
+            value="Emotional support"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Recognition and appreciation for my efforts</span>
+          <input
+            type="radio"
+            name="important"
+            value="Recognition and appreciation
+for my efforts"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Space for my personal interests</span>
+          <input
+            type="radio"
+            name="important"
+            value="Space for my personal interests"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Screen 12 -->
+    <div class="container" id="screen-12">
+      <div class="title">
+        How well do you understand your communication style in relationships?
+      </div>
+      <p class="subtitle">
+        We want to personalize your insights based on your self-awareness level.
+      </p>
+      <div class="options">
+        <label class="option">
+          <span>I understand myself well</span>
+          <input
+            type="radio"
+            name="important"
+            value="I understand myself well"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>I’m still figuring things out</span>
+          <input
+            type="radio"
+            name="important"
+            value="I’m still figuring things out"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>I have no idea, but I need help</span>
+          <input
+            type="radio"
+            name="important"
+            value="I have no idea, but I need help"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Screen 13 -->
+
+    <div class="container screen-blue" id="screen-13">
+      <h1 class="title">What is AI-powered emotional decoding?</h1>
+      <p class="paragraph">
+        Most communication issues in relationships stem from one simple problem:
+        we don’t always say what we mean, and we don’t always hear what is being
+        said.
+      </p>
+      <p class="paragraph">
+        Our AI analyzes how you express emotions, how you react to conflicts,
+        and what truly matters to you in a relationship.
+      </p>
+      <h2 class="subtitle text">So how does it work?</h2>
+      <p class="paragraph">
+        We break down your communication style based on behavioral science.
+      </p>
+      <p class="paragraph">
+        We analyze key emotional triggers that shape your reactions.
+      </p>
+      <p class="paragraph">
+        We craft tailored recommendations to help you express yourself clearly
+        and understand your partner better.
+      </p>
+      <p class="paragraph highlight">
+        In just a few minutes, you’ll get hyper-personalized insights on how to
+        improve your relationship — based on YOU.
+      </p>
+      <p class="paragraph">
+        No more guessing. No more misunderstandings. Just clear, science-backed
+        insights for a stronger relationship.
+      </p>
+      <button class="button-next" onclick="nextScreen()">Next</button>
+    </div>
+
+    <!-- Screen 14 -->
+    <div class="container" id="screen-14">
+      <div class="title">
+        What aspect of your relationship do you want to improve the most?
+      </div>
+      <div class="options">
+        <label class="option">
+          <span>Understanding each other better</span>
+          <input
+            type="radio"
+            name="important"
+            value="Understanding each other better"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Reducing the number of arguments</span>
+          <input
+            type="radio"
+            name="important"
+            value="Reducing the number of arguments"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Bringing back passion and intimacy</span>
+          <input
+            type="radio"
+            name="important"
+            value="Bringing back passion and intimacy"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Building trust and emotional closeness</span>
+          <input
+            type="radio"
+            name="important"
+            value="Building trust and emotional
+closeness"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Screen 15 -->
+    <div class="container" id="screen-15">
+      <div class="title">
+        How would you rate your communication in your relationship?
+      </div>
+      <div class="options">
+        <label class="option">
+          <span>Excellent, we always understand each other</span>
+          <input
+            type="radio"
+            name="important"
+            value="Excellent, we always understand 
+each other"
+            onclick="delayedNextScreen('How would you rate your communication in your relationship?','test')" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Good, but there are things we could improve</span>
+          <input
+            type="radio"
+            name="important"
+            value="Good, but there are things 
+we could improve"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Average, sometimes we just don’t hear each other</span>
+          <input
+            type="radio"
+            name="important"
+            value="Average, sometimes we just don’t
+hear each other"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Poor, we constantly struggle with communication</span>
+          <input
+            type="radio"
+            name="important"
+            value="Poor, we constantly struggle
+with communication"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Screen 16 -->
+    <div class="container" id="screen-7">
+      <h1 class="title">
+        If you could ask your partner one question and get an honest answer,
+        what would it be?
+      </h1>
+      <div class="input-block">
+        <textarea
+          id="partner-question"
+          class="input"
+          data-button="next-btn-1"
+          placeholder="Type your answer"></textarea>
+        <button
+          id="next-btn-1"
+          class="button hidden button-next"
+          onclick="saveAndNext('partner-question')">
+          Next
+        </button>
+      </div>
+    </div>
+
+    <!-- Screen 17 -->
+    <div class="container" id="screen-17">
+      <div class="title">
+        What is stopping you from fixing the problems in your relationship?
+      </div>
+      <div class="options">
+        <label class="option">
+          <span>I don’t know where to start</span>
+          <input
+            type="radio"
+            name="important"
+            value="I don’t know where to start"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>My partner isn’t open to discussion</span>
+          <input
+            type="radio"
+            name="important"
+            value="My partner isn’t open to discussion"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>We don’t have time</span>
+          <input
+            type="radio"
+            name="important"
+            value="We don’t have time"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>The problems feel too deep to fix</span>
+          <input
+            type="radio"
+            name="important"
+            value="The problems feel too deep to fix"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+      </div>
+    </div>
+    <!-- Screen 18 -->
+
+    <div class="container screen-blue" id="screen-18">
+      <div class="relative">
+        <img src="./images/people-picture.png" alt="people-picture" />
+        <h1 class="title title-transorm">You’re Almost There! 🚀</h1>
+      </div>
+      <div class="d-flex text-center">
+        <p class="paragraph">
+          We’ve analyzed your responses and ready to give you personalized
+          insights into your relationship.
+        </p>
+        <p class="paragraph">
+          Now, we just need 5 quick answers to fine-tune your relationship
+          profile and help you understand each other better than ever.
+        </p>
+
+        <span class="bold">Let’s get started!</span>
+
+        <button class="button button-next" onclick="nextScreen()">
+          continue
+        </button>
+      </div>
+    </div>
+
+    <!-- Screen 19 -->
+    <div class="container" id="screen-19">
+      <div class="title">
+        How much time are you willing to spend improving your relationship each
+        day?
+      </div>
+      <div class="options">
+        <label class="option">
+          <span>5 minutes</span>
+          <input
+            type="radio"
+            name="important"
+            value="5 minutes"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>10-15 minutes</span>
+          <input
+            type="radio"
+            name="important"
+            value="10-15 minutes"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>30 minutes or more</span>
+          <input
+            type="radio"
+            name="important"
+            value="30 minutes or more"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Screen 20 -->
+    <div class="container" id="screen-20">
+      <div class="title">
+        Where do you usually look for advice on improving your relationship?
+      </div>
+      <div class="options">
+        <label class="option">
+          <span>Articles and blogs</span>
+          <input
+            type="radio"
+            name="important"
+            value="Articles and blogs"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Social media (Instagram, TikTok, Youtube)</span>
+          <input
+            type="radio"
+            name="important"
+            value="Social media (Instagram, TikTok,
+  Youtube)"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Videos and podcasts</span>
+          <input
+            type="radio"
+            name="important"
+            value="Videos and podcasts"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>Psychologists or relationship coaches</span>
+          <input
+            type="radio"
+            name="important"
+            value="Psychologists or relationship 
+  coaches"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Screen 21 -->
+    <div class="container" id="screen-21">
+      <h1 class="title">
+        What situation in your relationship bothers you the most?
+      </h1>
+      <div class="input-block">
+        <textarea
+          id="relationship-situation"
+          class="input"
+          data-button="next-btn-2"
+          placeholder="Describe the situation you want to resolve"></textarea>
+        <button
+          id="next-btn-2"
+          class="button hidden button-next"
+          onclick="saveAndNext('relationship-situation')">
+          Next
+        </button>
+      </div>
+    </div>
+
+    <!-- Screen 22 -->
+    <div class="container" id="screen-22">
+      <h1 class="title">
+        What do you think your partner could do to improve your relationship?
+      </h1>
+      <div class="input-block">
+        <textarea
+          id="improve-relationship"
+          class="input"
+          data-button="next-btn-3"
+          placeholder="Type your answer"></textarea>
+        <button
+          id="next-btn-3"
+          class="button hidden button-next"
+          onclick="saveAndNext('improve-relationship')">
+          Next
+        </button>
+      </div>
+    </div>
+
+    <!-- Screen 23 -->
+    <div class="container" id="screen-23">
+      <div class="title">
+        What result do you want to achieve with our service?
+      </div>
+      <div class="options">
+        <label class="option">
+          <span>To feel understood by my partner</span>
+          <input
+            type="radio"
+            name="important"
+            value="To feel understood by my partner"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>To reduce the number of conflicts</span>
+          <input
+            type="radio"
+            name="important"
+            value="To reduce the number of conflicts"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>To build trust and emotional closeness</span>
+          <input
+            type="radio"
+            name="important"
+            value="To build trust and emotional
+  closeness"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>To learn how to better express my feelings</span>
+          <input
+            type="radio"
+            name="important"
+            value="To learn how to better express
+  my feelings"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Screen 23 -->
+    <div class="container" id="screen-23">
+      <div class="title">
+        What result do you want to achieve with our service?
+      </div>
+      <div class="options">
+        <label class="option">
+          <span>To feel understood by my partner</span>
+          <input
+            type="radio"
+            name="important"
+            value="To feel understood by my partner"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>To reduce the number of conflicts</span>
+          <input
+            type="radio"
+            name="important"
+            value="To reduce the number of conflicts"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>To build trust and emotional closeness</span>
+          <input
+            type="radio"
+            name="important"
+            value="To build trust and emotional
+closeness"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+        <label class="option">
+          <span>To learn how to better express my feelings</span>
+          <input
+            type="radio"
+            name="important"
+            value="To learn how to better express
+my feelings"
+            onclick="delayedNextScreen()" />
+          <span class="check-circle"></span>
+        </label>
+      </div>
+    </div>
+    <!-- Screen 24 -->
+    <div class="container" id="screen-progress">
+      <h1 class="title">Analyzing your profile...</h1>
+
+      <div class="progress-section">
+        <p>Your Communication Style <span id="progress-text-1">0%</span></p>
+        <div class="progress-bar">
+          <div id="progress-bar-1" class="bar"></div>
+        </div>
+      </div>
+
+      <div class="progress-section">
+        <p>Your Emotional Triggers <span id="progress-text-2">0%</span></p>
+        <div class="progress-bar">
+          <div id="progress-bar-2" class="bar"></div>
+        </div>
+      </div>
+
+      <div class="progress-section">
+        <p>Conflict Resolution Pattern <span id="progress-text-3">0%</span></p>
+        <div class="progress-bar">
+          <div id="progress-bar-3" class="bar"></div>
+        </div>
+      </div>
+
+      <div class="dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+      <div class="btn-block"></div>
+
+      <p class="subtitle">
+        Please wait while we analyze your answers, identify emotional dynamics,
+        and build a personalized relationship improvement plan using advanced AI
+        insights and proven relationship frameworks.
+      </p>
+
+      <div class="comments-section">
+        <div class="comments-container">
+          <div class="comment-card">
+            <p class="stars">★★★★★</p>
+            <h3>Understanding and improving relationship</h3>
+            <p>
+              I can’t believe how much this app changed my relationship. My
+              partner finally understands me, and I understand them. We’ve
+              stopped fighting over little things, and I feel closer than ever.
+              This is a game-changer!
+            </p>
+          </div>
+          <div class="comment-card">
+            <p class="stars">★★★★★</p>
+            <h3>Understanding and improving relationship</h3>
+            <p>
+              I can’t believe how much this app changed my relationship. My
+              partner finally understands me, and I understand them. We’ve
+              stopped fighting over little things, and I feel closer than ever.
+              This is a game-changer!
+            </p>
+          </div>
+          <div class="comment-card">
+            <p class="stars">★★★★★</p>
+            <h3>Understanding and improving relationship</h3>
+            <p>
+              I can’t believe how much this app changed my relationship. My
+              partner finally understands me, and I understand them. We’ve
+              stopped fighting over little things, and I feel closer than ever.
+              This is a game-changer!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen 25 -->
+    <div class="container" id="screen-25">
+      <h1 class="title">
+        Enter your email to see how you can fix relationship problems with Feelu
+      </h1>
+
+      <p class="subtitle">
+        Feelu respects your privacy and does not share your personal
+        information. We’ll email you a copy of your personalized program for
+        convenient access.
+      </p>
+      <div class="input-block">
+        <textarea
+          id="Email"
+          class="input"
+          data-button="next-btn-4"
+          placeholder="Type your answer"></textarea>
+        <button
+          id="next-btn-4"
+          class="button hidden button-next"
+          onclick="saveAndNext('Email')">
+          Next
+        </button>
+      </div>
+    </div>
+
+    <!-- Screen 26 -->
+    <div class="container screen-blue" id="screen-26">
+      <h1 class="title">
+        Enter your email to see how you can fix relationship problems with Feelu
+      </h1>
+      <p class="subtitle">
+        Feelu respects your privacy and does not share your personal
+        information. We’ll email you a copy of your personalized program for
+        convenient access.
+      </p>
+
+      <div class="input-block">
+        <textarea
+          id="partner-question"
+          class="input"
+          data-button="next-btn-4"
+          placeholder="Type your answer"></textarea>
+        <div>
+          <button
+            id="next-btn-4"
+            class="button hidden button-next"
+            onclick="saveAndNext('partner-question')">
+            Next
+          </button>
+        </div>
+      </div>
+      <div class="mail_block">
+        <img class="mt-20" src="./images/two-people.png" alt="two-people" />
+        <p class="policy">
+          By continuing, <a href="">I agree to Feelu’s Privacy policy </a>and
+          <a href="">Terms of Use.</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Screen 27 -->
+
+    <div class="container screen-blue" id="screen-27">
+      <h1 class="title">
+        Get access to your <span class="special-text">exclusive</span> insights
+        <br />
+        and personalized relationship guidance!
+      </h1>
+      <h2 class="big-subtitle">Unlock:</h2>
+      <ul class="features-list">
+        <li>💡 Hyper-personalized relationship analysis</li>
+        <li>💬 Tailored communication tips and advice</li>
+        <li>💖 Emotional connection strategies</li>
+        <li>🎁 Exclusive tools to strengthen your relationship</li>
+      </ul>
+      <p class="instructions">
+        Just confirm you want to receive updates via email so you don’t miss any
+        tips or offers!
+      </p>
+      <div class="d-flex">
+        <button class="button button-next" onclick="nextScreen()">
+          CONFIRM
+        </button>
+        <a href="#" class="skip-link">
+          I don’t want to improve my relationship and truly understand my
+          partner!
+        </a>
+      </div>
+    </div>
+
+    <!-- Screen 28 -->
+
+    <div class="container screen-blue" id="screen-28">
+      <p class="mb-20">
+        We’ve helped thousands of people build stronger, happier relationships,
+        and now it’s your turn.
+      </p>
+      <p class="bold mb-20">
+        We believe that better communication and emotional understanding should
+        be accessible to everyone.
+      </p>
+      <p class="mb-20">
+        To make sure money isn’t a barrier to transforming your relationship, we
+        let you decide how much you’re willing to invest in trying us out for
+        one week.
+      </p>
+      <p class="bold mb-20">
+        It costs us $13.67 to offer a 7-day trial, but please choose the amount
+        that feels right for you:
+      </p>
+      <div class="d-flex">
+        <button class="button button-next" onclick="nextScreen()">
+          see my plan
+        </button>
+        <a href="#" class="skip-link">
+          I don’t want to improve my relationship and truly understand my
+          partner!
+        </a>
+      </div>
+    </div>
+
+    <!-- Screen 29 -->
+    <div class="container active" id="screen-29">
+      <h1 class="title">Become more connected, fulfilled, and understood</h1>
+      <h2 class="subtitle">
+        Over 100,000 people have already transformed their relationships with
+        our AI-powered insights.
+      </h2>
+
+      <div class="comparison-block">
+        <div class="comparison-header">
+          <span class="header-item">Right now</span>
+          <span class="header-item orange-text">In just one month</span>
+        </div>
+        <div class="comparison-img">
+          <img
+            src="./images/pictures-no.png"
+            alt="Current State"
+            class="comparison-image" />
+          <img
+            src="./images/happy.png"
+            alt="Future State"
+            class="comparison-image" />
+        </div>
+
+        <div class="comparison-lists">
+          <ul class="issues-list">
+            <li class="issue-item">❌ Feeling unheard and misunderstood</li>
+            <li class="issue-item">
+              ❌ Frequent arguments and emotional distance
+            </li>
+            <li class="issue-item">
+              ❌ Struggling to express your true emotions
+            </li>
+          </ul>
+          <ul class="benefits-list">
+            <li class="benefit-item">
+              ✅ <strong>Clear communication</strong> - no more
+              misunderstandings
+            </li>
+            <li class="benefit-item">
+              ✅ <strong>Emotional closeness</strong> - build deeper trust and
+              intimacy
+            </li>
+            <li class="benefit-item">
+              ✅ <strong>Stronger connection</strong> - feel seen, valued, and
+              appreciated
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="plans">
+        <div class="plans-container">
+          <h2 class="plans-title">
+            Your Personalized Relationship Plan is Ready!
+          </h2>
+          <p class="plans-subtitle">
+            Choose your plan and start improving your relationship today:
+          </p>
+
+          <div class="plans-card__block">
+            <!-- Карточка 1 -->
+            <div class="plan-card">
+              <div class="plan-header">
+                <div class="d-flex">
+                  <h3 class="plan-title">1-Week Trial</h3>
+                  <p class="plan-subtitle">6-WEEK PLAN</p>
+                </div>
+                <div class="plan-checkbox">
+                  <input
+                    type="radio"
+                    name="plan"
+                    id="plan-1"
+                    class="checkbox-input"
+                    data-link="./payment/payment-progress-1-week.html" />
+                  <label for="plan-1" class="checkbox-label"></label>
+                </div>
+              </div>
+              <div class="plan-pricing">
+                <div class="old-price">
+                  <span class="price-strike">$17.77</span>
+                  <span class="arrow">→</span>
+                  <span class="price-current">$6.93</span>
+                </div>
+                <hr class="divider" />
+                <div class="daily-price">
+                  <span class="small-text">$2.53</span>
+                  <div>
+                    <span class="price">$0.99 </span>
+                    <span class="per-day">per day</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Карточка 2 -->
+            <div class="plan-card">
+              <div class="plan-header">
+                <div class="d-flex">
+                  <h3 class="plan-title">4-Week Plan</h3>
+                  <!-- <p class="plan-subtitle">6-WEEK PLAN</p> -->
+                </div>
+                <div class="plan-checkbox">
+                  <input
+                    type="radio"
+                    name="plan"
+                    id="plan-2"
+                    class="checkbox-input"
+                    data-link="https://example.com/plan-2" />
+                  <label for="plan-2" class="checkbox-label"></label>
+                </div>
+              </div>
+              <div class="plan-pricing">
+                <div class="old-price">
+                  <span class="price-strike">$38.95</span>
+                  <span class="arrow">→</span>
+                  <span class="price-current">$15.95</span>
+                </div>
+                <hr class="divider" />
+                <div class="daily-price">
+                  <span class="small-text">$4.99</span>
+                  <div>
+                    <span class="price">$0.54 </span>
+                    <span class="per-day">per day</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Карточка 3 -->
+            <div class="plan-card">
+              <div class="plan-header">
+                <div class="d-flex">
+                  <h3 class="plan-title">12-Week Plan</h3>
+                  <!-- <p class="plan-subtitle">6-WEEK PLAN</p> -->
+                </div>
+                <div class="plan-checkbox">
+                  <input
+                    type="radio"
+                    name="plan"
+                    id="plan-3"
+                    class="checkbox-input"
+                    data-link="https://example.com/plan-3" />
+                  <label for="plan-3" class="checkbox-label"></label>
+                </div>
+              </div>
+              <div class="plan-pricing">
+                <div class="old-price">
+                  <span class="price-strike">$94.55</span>
+                  <span class="arrow">→</span>
+                  <span class="price-current">$36.55</span>
+                </div>
+                <hr class="divider" />
+                <div class="daily-price">
+                  <span class="small-text">$1.39</span>
+                  <div>
+                    <span class="price">$0.44 </span>
+                    <span class="per-day">per day</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="plan-details">
+        <h2 class="plan-title">What’s inside your plan?</h2>
+        <ul class="plan-list">
+          <li class="plan-item">
+            <span class="icon">🔷</span>
+            <span class="plan-text">
+              <strong>Daily personalized strategies</strong> - Simple yet
+              powerful exercises to boost communication
+            </span>
+          </li>
+          <li class="plan-item">
+            <span class="icon">🔷</span>
+            <span class="plan-text">
+              <strong>AI-guided conversations</strong> - Learn how to talk to
+              your partner in a way they truly understand
+            </span>
+          </li>
+          <li class="plan-item">
+            <span class="icon">🔷</span>
+            <span class="plan-text">
+              <strong>Emotional decoding</strong> - Understand what’s really
+              behind their words and actions
+            </span>
+          </li>
+          <li class="plan-item">
+            <span class="icon">🔷</span>
+            <span class="plan-text">
+              <strong>Relationship challenges</strong> - Break old patterns and
+              create stronger bonds
+            </span>
+          </li>
+          <li class="plan-item">
+            <span class="icon">🔷</span>
+            <span class="plan-text">
+              <strong>Exclusive insights from psychology & AI</strong> - Backed
+              by behavioral science
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Кнопка перехода -->
+      <button class="go-button btn-start" onclick="navigateToLink()">
+        start your journey today
+      </button>
+
+      <div class="faq-section">
+        <h2 class="faq-title">People often ask...</h2>
+        <div class="faq-item">
+          <p class="faq-question">1. How fast will I see results?</p>
+          <p class="faq-answer">
+            •
+            <strong
+              >Most users notice a positive shift in communication within the
+              first week.</strong
+            >
+            The deeper the commitment, the better the results!
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">
+            2. Will this work if my partner isn’t involved?
+          </p>
+          <p class="faq-answer">
+            • Absolutely!
+            <strong>Small changes in how YOU communicate</strong> can
+            dramatically improve your relationship dynamics.
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-question">3. What if I don’t have time for this?</p>
+          <p class="faq-answer">
+            • <strong>It takes just 5 minutes a day</strong>, but the impact
+            lasts a lifetime.
+            <br />
+            Relationships are worth it!
+          </p>
+        </div>
+      </div>
+
+      <div class="results-section">
+        <h2 class="results-title">Proven results after just 2-4 weeks</h2>
+        <div class="results-image">
+          <img src="./images/peoples.png" alt="People" class="image" />
+        </div>
+        <div class="results-stats">
+          <div class="stat-item">
+            <span class="stat-percentage">82%</span>
+            <span class="stat-description"
+              >Improved communication<br />
+              with their partner</span
+            >
+          </div>
+          <div class="stat-item">
+            <span class="stat-percentage">76%</span>
+            <span class="stat-description"
+              >Felt more emotionally<br />
+              connected</span
+            >
+          </div>
+          <div class="stat-item">
+            <span class="stat-percentage">74%</span>
+            <span class="stat-description"
+              >Reduced conflicts and stress in their relationship</span
+            >
+          </div>
+        </div>
+        <p class="results-note">
+          Based on feedback from users after two weeks of using our plan.
+          Results may vary for each person.
+        </p>
+      </div>
+
+      <div class="money-back-section">
+        <h3 class="money-back-title">30-days money-back guarantee</h3>
+        <p class="money-back-text">
+          We believe that our plan will work for you and you will get noticeable
+          results in just 4 weeks! We are even ready to return your money back
+          if this plan is not for you!
+        </p>
+        <p class="money-back-text">
+          Find more about applicable limitations in our
+          <a href="#" class="money-back-link">money-back policy.</a>
+        </p>
+      </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
