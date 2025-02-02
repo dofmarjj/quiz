@@ -720,7 +720,7 @@ textarea.input:focus-visible {
 .plan-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin-left: 20px;
 }
 
 .plan-item {
@@ -750,7 +750,7 @@ textarea.input:focus-visible {
 .btn-start {
   max-width: 205px;
   cursor: pointer;
-  margin: auto;
+  margin: 0 auto 70px;
   background-color: #97c3f9;
   border-radius: 10px;
   text-transform: uppercase;
@@ -777,7 +777,7 @@ textarea.input:focus-visible {
 
 .faq-title {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 800;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -810,7 +810,7 @@ textarea.input:focus-visible {
 
 .results-title {
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 800;
   margin-bottom: 20px;
 }
 
