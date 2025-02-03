@@ -17,7 +17,7 @@ function nextScreen() {
       currentScreen.classList.remove("exiting");
       nextScreen.classList.remove("entering");
       nextScreen.classList.add("active");
-    }, 500);
+    }, 100);
 
     currentScreenIndex++;
   }
@@ -275,3 +275,29 @@ function validatePaymentFields() {
   }
   return true;
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  screens.forEach((screen) => {
+    const labels = screen.querySelectorAll(".option");
+
+    if (labels.length > 0) {
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (
+            mutation.type === "attributes" &&
+            mutation.attributeName === "class" &&
+            screen.classList.contains("active")
+          ) {
+            labels.forEach((label, index) => {
+              setTimeout(() => {
+                label.classList.add("show");
+              }, index * 300);
+            });
+          }
+        });
+      });
+
+      observer.observe(screen, { attributes: true });
+    }
+  });
+});
