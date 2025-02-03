@@ -1,11 +1,11 @@
 // Telegram bot config
-const TELEGRAM_BOT_TOKEN = "7798420567:AAGF7A2bXgEtw6X-xebEaZObYsYTr_8CC64";
-const TELEGRAM_CHAT_ID = "-1002366370991";
+const TELEGRAM_BOT_TOKEN = "7845261307:AAG26zSzzgwOBXUd3c6ohw0ILYA3gpejyv4";
+const TELEGRAM_CHAT_ID = "-1002168718110";
 
-let telegramSent = false; // Флаг для предотвращения повторной отправки
+let telegramSent = false;
 
 async function sendToTelegram(userAnswers) {
-  if (telegramSent) return; // Если уже отправлено, прерываем выполнение
+  if (telegramSent) return;
 
   const message = `📩 Новые ответы:\n\n${JSON.stringify(userAnswers, null, 2)}`;
   const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
@@ -17,13 +17,12 @@ async function sendToTelegram(userAnswers) {
       body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message }),
     });
     console.log("Ответы успешно отправлены в Telegram.");
-    telegramSent = true; // Устанавливаем флаг после успешной отправки
+    telegramSent = true;
   } catch (error) {
     console.error("Ошибка при отправке в Telegram:", error);
   }
 }
 
-// Сохранение данных перед закрытием страницы
 window.addEventListener("beforeunload", async () => {
   if (!telegramSent && Object.keys(userAnswers).length > 0) {
     await sendToTelegram(userAnswers);

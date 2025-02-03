@@ -1,6 +1,6 @@
 // Telegram bot config
 const TELEGRAM_BOT_TOKEN = "7798420567:AAGF7A2bXgEtw6X-xebEaZObYsYTr_8CC64";
-const TELEGRAM_CHAT_ID = "-1002366370991";
+const TELEGRAM_CHAT_ID = "-1002168718110";
 
 let telegramSent = false; // Флаг для предотвращения повторной отправки
 const userAnswersPay = {}; // Хранение ответов пользователя
