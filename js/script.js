@@ -256,7 +256,6 @@ function prevScreen() {
   }
 }
 
-// Функция проверки заполненности полей карты
 function validatePaymentFields() {
   const cardholderName = document
     .querySelector("input[placeholder='John Doe']")

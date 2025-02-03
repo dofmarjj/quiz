@@ -9,14 +9,12 @@
   transform: translateY(0);
 }
 
-/* Анимация исчезновения */
 .fade-out {
   opacity: 0;
   transform: scale(0.95);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Анимация появления */
 .fade-in {
   opacity: 0;
   transform: scale(1.05);

