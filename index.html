@@ -28,7 +28,7 @@
             <img src="./images/male.png" alt="Male" />
             <button
               class="button-main btn-male"
-              onclick="nextScreen('gender','Male')">
+              onclick="delayedNextScreen('gender','Male')">
               Male
               <span class="arrow"
                 ><svg
@@ -52,7 +52,7 @@
             <img src="./images/female.png" alt="Female" />
             <button
               class="button-main btn-female"
-              onclick="nextScreen('gender','Female')">
+              onclick="delayedNextScreen('gender','Female')">
               Female
               <span class="arrow"
                 ><svg
@@ -130,7 +130,7 @@
               type="radio"
               name="relationship"
               value="Happy and stable"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('How would you describe your current relationship?', 'Happy and stable')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -139,7 +139,7 @@
               type="radio"
               name="relationship"
               value="Challenges"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('How would you describe your current relationship?', 'Challenges')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -148,7 +148,7 @@
               type="radio"
               name="relationship"
               value="Crisis"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('How would you describe your current relationship?', 'Crisis')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -157,7 +157,7 @@
               type="radio"
               name="relationship"
               value="Not in relationship"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('How would you describe your current relationship?', 'Not in relationship')" />
             <span class="check-circle"></span>
           </label>
         </div>
@@ -178,7 +178,7 @@
               type="radio"
               name="important"
               value="Trust"
-              onclick="delayedNextScreen(' What is the most important thing for you in a relationship?', 'Trust')" />
+              onclick="delayedNextScreen('What is the most important thing for you in a relationship?', 'Trust')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -187,7 +187,7 @@
               type="radio"
               name="important"
               value="Support and understanding"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('What is the most important thing for you in a relationship?', 'Support and understanding')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -196,7 +196,7 @@
               type="radio"
               name="important"
               value="Communication and openness"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('What is the most important thing for you in a relationship?', 'Communication and openness')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -205,7 +205,7 @@
               type="radio"
               name="important"
               value="Passion and emotional connection"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('What is the most important thing for you in a relationship?', 'Passion and emotional connection')" />
             <span class="check-circle"></span>
           </label>
         </div>
@@ -225,9 +225,8 @@
             <input
               type="radio"
               name="important"
-              value="Miscommunication or lack
-of understanding"
-              onclick="delayedNextScreen()" />
+              value="Miscommunication or lack of understanding"
+              onclick="delayedNextScreen('What challenges do you face most often in your relationship?', 'Miscommunication or lack of understanding')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -235,9 +234,8 @@ of understanding"
             <input
               type="radio"
               name="important"
-              value="Jealousy or feelings
-of insecurity"
-              onclick="delayedNextScreen()" />
+              value="Jealousy or feelings of insecurity"
+              onclick="delayedNextScreen('What challenges do you face most often in your relationship?', 'Jealousy or feelings of insecurity')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -245,9 +243,8 @@ of insecurity"
             <input
               type="radio"
               name="important"
-              value="Frequent arguments over
-small things"
-              onclick="delayedNextScreen()" />
+              value="Frequent arguments over small things"
+              onclick="delayedNextScreen('What challenges do you face most often in your relationship?', 'Frequent arguments over small things')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -255,9 +252,8 @@ small things"
             <input
               type="radio"
               name="important"
-              value="Loss of intimacy and emotional
-connection"
-              onclick="delayedNextScreen()" />
+              value="Loss of intimacy and emotional connection"
+              onclick="delayedNextScreen('What challenges do you face most often in your relationship?', 'Loss of intimacy and emotional connection')" />
             <span class="check-circle"></span>
           </label>
         </div>
@@ -278,7 +274,7 @@ connection"
               type="radio"
               name="important"
               value="Yes, most of the time"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('Do you feel like your partner truly understands you?', 'Yes, most of the time')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -287,7 +283,7 @@ connection"
               type="radio"
               name="important"
               value="Sometimes, but not always"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('Do you feel like your partner truly understands you?', 'Sometimes, but not always')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -295,9 +291,8 @@ connection"
             <input
               type="radio"
               name="important"
-              value="No, we often struggle with
-understanding each other"
-              onclick="delayedNextScreen()" />
+              value="No, we often struggle with understanding each other"
+              onclick="delayedNextScreen('Do you feel like your partner truly understands you?', 'No, we often struggle with understanding each other')" />
             <span class="check-circle"></span>
           </label>
         </div>
@@ -316,7 +311,7 @@ understanding each other"
               type="radio"
               name="important"
               value="Almost never"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('How often do you argue with your partner?', 'Almost never')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -324,8 +319,8 @@ understanding each other"
             <input
               type="radio"
               name="important"
-              value="AA few times a month"
-              onclick="delayedNextScreen()" />
+              value="A few times a month"
+              onclick="delayedNextScreen('How often do you argue with your partner?', 'A few times a month')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -334,7 +329,7 @@ understanding each other"
               type="radio"
               name="important"
               value="Almost every week"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('How often do you argue with your partner?', 'Almost every week')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -342,9 +337,8 @@ understanding each other"
             <input
               type="radio"
               name="important"
-              value="Very often - it has become
-a real problem"
-              onclick="delayedNextScreen()" />
+              value="Very often - it has become a real problem"
+              onclick="delayedNextScreen('How often do you argue with your partner?', 'Very often - it has become a real problem')" />
             <span class="check-circle"></span>
           </label>
         </div>
@@ -381,9 +375,8 @@ a real problem"
             <input
               type="radio"
               name="important"
-              value="I try to talk things through and resolve
-them immediately"
-              onclick="delayedNextScreen()" />
+              value="I try to talk things through and resolve them immediately"
+              onclick="delayedNextScreen('How do you handle conflicts?', 'I try to talk things through and resolve them immediately')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -391,9 +384,8 @@ them immediately"
             <input
               type="radio"
               name="important"
-              value="I withdraw and find it hard to talk
-about problems"
-              onclick="delayedNextScreen()" />
+              value="I withdraw and find it hard to talk about problems"
+              onclick="delayedNextScreen('How do you handle conflicts?', 'I withdraw and find it hard to talk about problems')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -401,9 +393,8 @@ about problems"
             <input
               type="radio"
               name="important"
-              value="I sometimes react emotionally
-and regret it later"
-              onclick="delayedNextScreen()" />
+              value="I sometimes react emotionally and regret it later"
+              onclick="delayedNextScreen('How do you handle conflicts?', 'I sometimes react emotionally and regret it later')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -411,9 +402,8 @@ and regret it later"
             <input
               type="radio"
               name="important"
-              value="I avoid discussions to prevent
-conflict"
-              onclick="delayedNextScreen()" />
+              value="I avoid discussions to prevent conflict"
+              onclick="delayedNextScreen('How do you handle conflicts?', 'I avoid discussions to prevent conflict')" />
             <span class="check-circle"></span>
           </label>
         </div>
@@ -431,9 +421,8 @@ conflict"
             <input
               type="radio"
               name="important"
-              value="Yes, I can talk about my 
-feelings easily"
-              onclick="delayedNextScreen()" />
+              value="Yes, I can talk about my feelings easily"
+              onclick="delayedNextScreen('Do you find it easy to express your emotions?', 'Yes, I can talk about my feelings easily')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -441,9 +430,8 @@ feelings easily"
             <input
               type="radio"
               name="important"
-              value="Sometimes, but I struggle to find
-the right words"
-              onclick="delayedNextScreen()" />
+              value="Sometimes, but I struggle to find the right words"
+              onclick="delayedNextScreen('Do you find it easy to express your emotions?', 'Sometimes, but I struggle to find the right words')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -451,9 +439,8 @@ the right words"
             <input
               type="radio"
               name="important"
-              value="No, it’s difficult for me to share
-my emotions"
-              onclick="delayedNextScreen()" />
+              value="No, it’s difficult for me to share my emotions"
+              onclick="delayedNextScreen('Do you find it easy to express your emotions?', 'No, it’s difficult for me to share my emotions')" />
             <span class="check-circle"></span>
           </label>
         </div>
@@ -475,7 +462,7 @@ my emotions"
               type="radio"
               name="important"
               value="Attention and care"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('What do you need from your partner to feel comfortable in the relationship?', 'Attention and care')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -484,7 +471,7 @@ my emotions"
               type="radio"
               name="important"
               value="Emotional support"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('What do you need from your partner to feel comfortable in the relationship?', 'Emotional support')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -492,9 +479,8 @@ my emotions"
             <input
               type="radio"
               name="important"
-              value="Recognition and appreciation
-for my efforts"
-              onclick="delayedNextScreen()" />
+              value="Recognition and appreciation for my efforts"
+              onclick="delayedNextScreen('What do you need from your partner to feel comfortable in the relationship?', 'Recognition and appreciation for my efforts')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -503,7 +489,7 @@ for my efforts"
               type="radio"
               name="important"
               value="Space for my personal interests"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('What do you need from your partner to feel comfortable in the relationship?', 'Space for my personal interests')" />
             <span class="check-circle"></span>
           </label>
         </div>
@@ -528,7 +514,7 @@ for my efforts"
               type="radio"
               name="important"
               value="I understand myself well"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('How well do you understand your communication style in relationships?', 'I understand myself well')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -537,7 +523,7 @@ for my efforts"
               type="radio"
               name="important"
               value="I’m still figuring things out"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('How well do you understand your communication style in relationships?', 'I’m still figuring things out')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -546,7 +532,7 @@ for my efforts"
               type="radio"
               name="important"
               value="I have no idea, but I need help"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('How well do you understand your communication style in relationships?', 'I have no idea, but I need help')" />
             <span class="check-circle"></span>
           </label>
         </div>
@@ -604,7 +590,7 @@ for my efforts"
               type="radio"
               name="important"
               value="Understanding each other better"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('What aspect of your relationship do you want to improve the most?', 'Understanding each other better')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -613,7 +599,7 @@ for my efforts"
               type="radio"
               name="important"
               value="Reducing the number of arguments"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('What aspect of your relationship do you want to improve the most?', 'Reducing the number of arguments')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -622,7 +608,7 @@ for my efforts"
               type="radio"
               name="important"
               value="Bringing back passion and intimacy"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('What aspect of your relationship do you want to improve the most?', 'Bringing back passion and intimacy')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -630,9 +616,8 @@ for my efforts"
             <input
               type="radio"
               name="important"
-              value="Building trust and emotional
-closeness"
-              onclick="delayedNextScreen()" />
+              value="Building trust and emotional closeness"
+              onclick="delayedNextScreen('What aspect of your relationship do you want to improve the most?', 'Building trust and emotional closeness')" />
             <span class="check-circle"></span>
           </label>
         </div>
@@ -731,7 +716,7 @@ with communication"
               type="radio"
               name="important"
               value="I don’t know where to start"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('What is stopping you from fixing the problems in your relationship?', 'I don’t know where to start')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -740,7 +725,7 @@ with communication"
               type="radio"
               name="important"
               value="My partner isn’t open to discussion"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('What is stopping you from fixing the problems in your relationship?', 'My partner isn’t open to discussion')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -749,7 +734,7 @@ with communication"
               type="radio"
               name="important"
               value="We don’t have time"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('What is stopping you from fixing the problems in your relationship?', 'We don’t have time')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -758,7 +743,7 @@ with communication"
               type="radio"
               name="important"
               value="The problems feel too deep to fix"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('What is stopping you from fixing the problems in your relationship?', 'The problems feel too deep to fix')" />
             <span class="check-circle"></span>
           </label>
         </div>
@@ -806,7 +791,7 @@ with communication"
               type="radio"
               name="important"
               value="5 minutes"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('How much time are you willing to spend improving your relationship each day?', '5 minutes')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -815,7 +800,7 @@ with communication"
               type="radio"
               name="important"
               value="10-15 minutes"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('How much time are you willing to spend improving your relationship each day?', '10-15 minutes')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -824,7 +809,7 @@ with communication"
               type="radio"
               name="important"
               value="30 minutes or more"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('How much time are you willing to spend improving your relationship each day?', '30 minutes or more')" />
             <span class="check-circle"></span>
           </label>
         </div>
@@ -845,7 +830,7 @@ with communication"
               type="radio"
               name="important"
               value="Articles and blogs"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('Where do you usually look for advice on improving your relationship?', 'Articles and blogs')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -853,9 +838,8 @@ with communication"
             <input
               type="radio"
               name="important"
-              value="Social media (Instagram, TikTok,
-  Youtube)"
-              onclick="delayedNextScreen()" />
+              value="Social media (Instagram, TikTok, Youtube)"
+              onclick="delayedNextScreen('Where do you usually look for advice on improving your relationship?', 'Social media (Instagram, TikTok, Youtube)')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -864,7 +848,7 @@ with communication"
               type="radio"
               name="important"
               value="Videos and podcasts"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('Where do you usually look for advice on improving your relationship?', 'Videos and podcasts')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -872,9 +856,8 @@ with communication"
             <input
               type="radio"
               name="important"
-              value="Psychologists or relationship 
-  coaches"
-              onclick="delayedNextScreen()" />
+              value="Psychologists or relationship coaches"
+              onclick="delayedNextScreen('Where do you usually look for advice on improving your relationship?', 'Psychologists or relationship coaches')" />
             <span class="check-circle"></span>
           </label>
         </div>
@@ -945,7 +928,7 @@ with communication"
               type="radio"
               name="important"
               value="To feel understood by my partner"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('What result do you want to achieve with our service?', 'To feel understood by my partner')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -954,7 +937,7 @@ with communication"
               type="radio"
               name="important"
               value="To reduce the number of conflicts"
-              onclick="delayedNextScreen()" />
+              onclick="delayedNextScreen('What result do you want to achieve with our service?', 'To reduce the number of conflicts')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -962,9 +945,8 @@ with communication"
             <input
               type="radio"
               name="important"
-              value="To build trust and emotional
-  closeness"
-              onclick="delayedNextScreen()" />
+              value="To build trust and emotional closeness"
+              onclick="delayedNextScreen('What result do you want to achieve with our service?', 'To build trust and emotional closeness')" />
             <span class="check-circle"></span>
           </label>
           <label class="option">
@@ -972,9 +954,8 @@ with communication"
             <input
               type="radio"
               name="important"
-              value="To learn how to better express
-  my feelings"
-              onclick="delayedNextScreen()" />
+              value="To learn how to better express my feelings"
+              onclick="delayedNextScreen('What result do you want to achieve with our service?', 'To learn how to better express my feelings')" />
             <span class="check-circle"></span>
           </label>
         </div>
@@ -982,55 +963,6 @@ with communication"
       </div>
     </div>
 
-    <!-- Screen 23 -->
-    <div class="container" id="screen-23">
-      <div class="max-width">
-        <div class="title">
-          What result do you want to achieve with our service?
-        </div>
-        <div class="options">
-          <label class="option">
-            <span>To feel understood by my partner</span>
-            <input
-              type="radio"
-              name="important"
-              value="To feel understood by my partner"
-              onclick="delayedNextScreen()" />
-            <span class="check-circle"></span>
-          </label>
-          <label class="option">
-            <span>To reduce the number of conflicts</span>
-            <input
-              type="radio"
-              name="important"
-              value="To reduce the number of conflicts"
-              onclick="delayedNextScreen()" />
-            <span class="check-circle"></span>
-          </label>
-          <label class="option">
-            <span>To build trust and emotional closeness</span>
-            <input
-              type="radio"
-              name="important"
-              value="To build trust and emotional
-closeness"
-              onclick="delayedNextScreen()" />
-            <span class="check-circle"></span>
-          </label>
-          <label class="option">
-            <span>To learn how to better express my feelings</span>
-            <input
-              type="radio"
-              name="important"
-              value="To learn how to better express
-my feelings"
-              onclick="delayedNextScreen()" />
-            <span class="check-circle"></span>
-          </label>
-        </div>
-        <button class="back-button" onclick="prevScreen()">Back</button>
-      </div>
-    </div>
     <!-- Screen 24 -->
     <div class="container" id="screen-progress">
       <div class="max-width">
@@ -1111,36 +1043,7 @@ my feelings"
     </div>
 
     <!-- Screen 25 -->
-    <!-- <div class="container" id="screen-25">
-      <div class="max-width">
-        <h1 class="title">
-          Enter your email to see how you can fix relationship problems with
-          Feelu
-        </h1>
-
-        <p class="subtitle">
-          Feelu respects your privacy and does not share your personal
-          information. We’ll email you a copy of your personalized program for
-          convenient access.
-        </p>
-        <div class="input-block">
-          <textarea
-            id="Email"
-            class="input"
-            data-button="next-btn-4"
-            placeholder="Type your answer"></textarea>
-          <button
-            id="next-btn-4"
-            class="button hidden button-next"
-            onclick="saveAndNext('Email')">
-            Next
-          </button>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- Screen 26 -->
-    <div class="container screen-blue" id="screen-26">
+    <div class="container screen-blue" id="screen-25">
       <div class="max-width">
         <h1 class="title">
           Enter your email to see how you can fix relationship problems with
@@ -1178,9 +1081,9 @@ my feelings"
       </div>
     </div>
 
-    <!-- Screen 27 -->
+    <!-- Screen 26 -->
 
-    <div class="container screen-blue" id="screen-27">
+    <div class="container screen-blue" id="screen-26">
       <div class="max-width">
         <h1 class="title">
           Get access to your
@@ -1211,9 +1114,9 @@ my feelings"
       </div>
     </div>
 
-    <!-- Screen 28 -->
+    <!-- Screen 27 -->
 
-    <div class="container screen-blue" id="screen-28">
+    <!-- <div class="container screen-blue" id="screen-27">
       <div class="max-width">
         <p class="mb-20">
           We’ve helped thousands of people build stronger, happier
@@ -1242,10 +1145,10 @@ my feelings"
           </a>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <!-- Screen 29 -->
-    <div class="container" id="screen-29">
+    <!-- Screen 28 -->
+    <div class="container" id="screen-28">
       <div class="max-width">
         <h1 class="title">Become more connected, fulfilled, and understood</h1>
         <h2 class="subtitle">
@@ -1311,7 +1214,7 @@ my feelings"
                 <div class="plan-header">
                   <div class="d-flex">
                     <h3 class="plan-title">1-Week Trial</h3>
-                    <p class="plan-subtitle">6-WEEK PLAN</p>
+                    <!-- <p class="plan-subtitle">6-WEEK PLAN</p> -->
                   </div>
                   <div class="plan-checkbox">
                     <input
@@ -1342,9 +1245,10 @@ my feelings"
 
               <!-- Карточка 2 -->
               <div class="plan-card">
+                <div class="plan-badge">Most Popular</div>
                 <div class="plan-header">
                   <div class="d-flex">
-                    <h3 class="plan-title">4-Week Plan</h3>
+                    <h3 class="plan-title mt-20">4-Week Plan</h3>
                     <!-- <p class="plan-subtitle">6-WEEK PLAN</p> -->
                   </div>
                   <div class="plan-checkbox">
@@ -1545,5 +1449,6 @@ my feelings"
     </div>
 
     <script src="./js/script.js"></script>
+    <script type="module" src="./js/send-tg.js"></script>
   </body>
 </html>

@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz UI - Payment</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/payment.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/payment.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -149,25 +149,28 @@
           </div>
           <div class="security-logos">
             <span class="security-logos__block"
-              ><img src="/images/payments/visa.png" alt=""
+              ><img src="../images/payments/visa.png" alt=""
             /></span>
             <span class="security-logos__block"
-              ><img src="/images/payments/master-card.png" alt=""
+              ><img src="../images/payments/master-card.png" alt=""
             /></span>
             <span class="security-logos__block"
-              ><img src="/images/payments/amex.png" alt=""
+              ><img src="../images/payments/amex.png" alt=""
             /></span>
             <span class="security-logos__block"
-              ><img src="/images/payments/discover.png" alt=""
+              ><img src="../images/payments/discover.png" alt=""
             /></span>
             <span class="security-logos__block"
-              ><img src="/images/payments/secure.png" alt=""
+              ><img src="../images/payments/secure.png" alt=""
             /></span>
             <span class="security-logos__block"
-              ><img src="/images/payments/mac.png" style="width: 50%" alt=""
+              ><img src="../images/payments/mac.png" style="width: 50%" alt=""
             /></span>
             <span class="security-logos__block"
-              ><img src="/images/payments/norton.png" alt="" style="width: 50%"
+              ><img
+                src="../images/payments/norton.png"
+                alt=""
+                style="width: 50%"
             /></span>
           </div>
         </div>
@@ -265,19 +268,31 @@
             <label>Cardholder Name</label>
             <input type="text" placeholder="John Doe" />
             <label>Card Number</label>
-            <input type="text" placeholder="**** **** **** ****" />
+            <input
+              type="text"
+              id="card-number"
+              placeholder="**** **** **** ****"
+              maxlength="19"
+              oninput="formatCardNumber(this)" />
             <div class="card-details">
               <div>
                 <label>Expiry Date</label>
-                <input type="text" placeholder="MM/YY" />
+                <input
+                  type="text"
+                  placeholder="MM/YY"
+                  oninput="formatExpiryDate(this)" />
               </div>
               <div>
                 <label>Security Code</label>
-                <input type="text" placeholder="***" />
+                <input
+                  type="text"
+                  placeholder="***"
+                  maxlength="3"
+                  oninput="limitToNumbers(this)" />
               </div>
             </div>
           </div>
-          <button class="payment-button">Make payment: $0.99</button>
+          <button class="payment-button">Make payment: $0.44</button>
           <button class="success-button" style="display: none">
             Payment Successful!
           </button>
@@ -285,6 +300,7 @@
       </div>
     </div>
 
-    <script src="/js/script.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/payment-sender.js"></script>
   </body>
 </html>

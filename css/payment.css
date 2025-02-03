@@ -132,7 +132,8 @@
   gap: 10px;
 }
 
-.payment-button {
+.payment-button,
+.success-button {
   width: 100%;
   background: #254aa5;
   font-size: 16px;
