@@ -12,7 +12,6 @@ async function sendToTelegram(userAnswers, useBeacon = false) {
 
   try {
     if (useBeacon) {
-      // 📌 Используем sendBeacon для отправки перед закрытием вкладки
       const data = new Blob(
         [JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message })],
         { type: "application/json" }
@@ -20,12 +19,11 @@ async function sendToTelegram(userAnswers, useBeacon = false) {
       const sent = navigator.sendBeacon(url, data);
 
       if (!sent) {
-        // Если sendBeacon не сработал, fallback через fetch
         await fetch(url, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message }),
-          keepalive: true, // 📌 Важно! Позволяет отправить запрос даже при закрытии вкладки
+          keepalive: true,
         });
       }
     } else {
@@ -36,33 +34,28 @@ async function sendToTelegram(userAnswers, useBeacon = false) {
       });
     }
 
-    console.log("✅ Ответы успешно отправлены в Telegram.");
     telegramSent = true;
   } catch (error) {
-    console.error("❌ Ошибка при отправке в Telegram:", error);
+    console.error("Ошибка при отправке в Telegram:", error);
   }
 }
 
-// 📌 Отправка перед закрытием браузера / вкладки
 function handleUnloadEvent() {
   if (!telegramSent && Object.keys(userAnswers).length > 0) {
     sendToTelegram(userAnswers, true);
   }
 }
 
-// 📌 Отправка при скрытии страницы
 document.addEventListener("visibilitychange", () => {
   if (document.hidden && !telegramSent && Object.keys(userAnswers).length > 0) {
     sendToTelegram(userAnswers);
   }
 });
 
-// 📌 Обработчики событий
 window.addEventListener("beforeunload", handleUnloadEvent);
 window.addEventListener("pagehide", handleUnloadEvent);
-window.addEventListener("unload", handleUnloadEvent); // 📌 Для Firefox и некоторых Chrome-версий
+window.addEventListener("unload", handleUnloadEvent);
 
-// 📌 Проверка финального экрана
 function checkForFinalScreen() {
   const finalScreen = document.getElementById("screen-28");
   if (
