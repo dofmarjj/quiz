@@ -13,6 +13,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet" />
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
   </head>
   <body>
     <!-- Screen 1 -->
@@ -1147,7 +1148,7 @@ with communication"
     </div> -->
 
     <!-- Screen 28 -->
-    <div class="container h-100" id="screen-28">
+    <div class="container h-100 active" id="screen-28">
       <div class="max-width">
         <h1 class="title">Become more connected, fulfilled, and understood</h1>
         <h2 class="subtitle">
@@ -1221,7 +1222,7 @@ with communication"
                       name="plan"
                       id="plan-1"
                       class="checkbox-input"
-                      data-link="./payment/payment-progress-1-week.html" />
+                      onclick="openCheckout(itemsList)" />
                     <label for="plan-1" class="checkbox-label"></label>
                   </div>
                 </div>
@@ -1448,6 +1449,43 @@ with communication"
     </div>
 
     <script src="./js/script.js"></script>
+    <script>
+      // Устанавливаем среду для Paddle
+      Paddle.Environment.set("sandbox");
+
+      // Проверка наличия и правильности client token
+      const clientToken = "test_f794c53b57de18d77dd19aa86bd"; // Ваш токен
+
+      if (clientToken) {
+        // Инициализация Paddle с токеном
+        Paddle.Initialize({
+          token: clientToken,
+        });
+
+        console.log("Paddle подключено успешно с токеном:", clientToken);
+      } else {
+        console.error("Ошибка: отсутствует client token");
+      }
+
+      // define items
+      let itemsList = [
+        {
+          priceId: "pri_01jk8a7hcsammyrr1njtpphkjq", // ID продукта
+          quantity: 1, // Количество товара
+        },
+      ];
+
+      // open checkout
+      function openCheckout(items) {
+        if (Paddle) {
+          Paddle.Checkout.open({
+            items: items,
+          });
+        } else {
+          alert("Ошибка подключения с Paddle. Пожалуйста, попробуйте позже.");
+        }
+      }
+    </script>
     <!-- <script type="module" src="./js/send-tg.js"></script> -->
   </body>
 </html>
