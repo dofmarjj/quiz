@@ -179,6 +179,21 @@ function navigateToLink() {
   }
 }
 
+// Добавляем клик на всю карточку для выбора radio
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".plan-card");
+
+  cards.forEach((card) => {
+    card.addEventListener("click", (event) => {
+      // Проверяем, чтобы не срабатывало на уже активном input
+      const radio = card.querySelector(".checkbox-input");
+      if (radio) {
+        radio.checked = true;
+      }
+    });
+  });
+});
+
 function selectMethod(method) {
   const methods = document.querySelectorAll(".method-option");
   methods.forEach((button) => button.classList.remove("selected"));
