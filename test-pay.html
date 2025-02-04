@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Оплата через Paddle</title>
     <script src="https://cdn.paddle.com/paddle/paddle.js"></script>
+    <script>
+      // Установка Vendor ID
+      Paddle.Setup({ vendor: 27173 }); // Замени 123456 на свой реальный Vendor ID
+    </script>
   </head>
   <body>
     <h1>Купить продукт</h1>
     <button id="buy-button">Оплатить</button>
 
     <script>
-      // Устанавливаем Vendor ID (найди его в Paddle Dashboard)
-      Paddle.Setup({ vendor: 27173 });
-
+      // Открытие окна оплаты с использованием Product ID
       document
         .getElementById("buy-button")
         .addEventListener("click", function () {
           Paddle.Checkout.open({
-            product: "pri_01jk8a7hcsammyrr1njtpphkjq", // Замени на ID твоего продукта
-            email: "user@example.com", // (необязательно) email покупателя
-            successCallback: function (data) {
-              console.log("Успешный платеж:", data);
-            },
+            product: pri_01jk8a7hcsammyrr1njtpphkjq, // Замени 654321 на свой реальный Product ID
+            email: "test@example.com", // (опционально) Email покупателя
+            passthrough: "Дополнительные данные", // (опционально) любые данные
           });
         });
     </script>
