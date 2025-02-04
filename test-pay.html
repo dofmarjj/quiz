@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Тестирование подключения с Paddle</title>
-    <script src="https://cdn.paddle.com/paddle/paddle.js"></script>
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
   </head>
   <body>
     <h1>Тестовое подключение Paddle</h1>
     <p>Нажмите на кнопку ниже, чтобы протестировать подключение Paddle.</p>
 
+    <!-- Кнопка для открытия окна с оплатой -->
     <a
       href="#"
       class="paddle_button"
@@ -20,24 +21,10 @@
       >pay</a
     >
 
-    <button id="testButton">Открыть тестовое окно</button>
-
-    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
     <script>
-      Paddle.Initialize({
-        token: "434e05e2cbd0e83e581f2142b6139ebf7e48ebd2c351e9fbcf", // replace with a client-side token
-        checkout: {
-          settings: {
-            displayMode: "inline",
-            variant: "one-page",
-            theme: "light",
-            locale: "en",
-            frameTarget: "checkout-container",
-            frameInitialHeight: "450",
-            frameStyle:
-              "width: 100%; min-width: 312px; background-color: transparent; border: none;",
-          },
-        },
+      // Инициализация Paddle
+      Paddle.Setup({
+        vendor: 27173, // Ваш Vendor ID
       });
     </script>
   </body>
