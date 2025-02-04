@@ -20,9 +20,14 @@
       document
         .getElementById("buy-button")
         .addEventListener("click", function () {
-          Paddle.Checkout.open({
-            product: "pri_01jk8a3ee6s11hvava5w7vyczn", // Укажи свой Product ID
-          });
+          try {
+            console.log("Пытаюсь открыть Paddle...");
+            Paddle.Checkout.open({
+              product: "pri_01jk8a3ee6s11hvava5w7vyczn",
+            });
+          } catch (error) {
+            console.error("Ошибка Paddle:", error);
+          }
         });
     </script>
   </body>
