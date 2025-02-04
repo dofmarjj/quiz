@@ -1,11 +1,8 @@
-// Устанавливаем среду для Paddle
 Paddle.Environment.set("sandbox");
 
-// Проверка наличия и правильности client token
 const clientToken = "test_f794c53b57de18d77dd19aa86bd"; // Ваш токен
 
 if (clientToken) {
-  // Инициализация Paddle с токеном
   Paddle.Initialize({
     token: clientToken,
   });
@@ -15,7 +12,6 @@ if (clientToken) {
   console.error("Ошибка: отсутствует client token");
 }
 
-// Определяем разные списки товаров
 let itemsList12 = [
   {
     priceId: "pri_01jk8a7hcsammyrr1njtpphkjq",
@@ -35,7 +31,6 @@ let itemsList1 = [
   },
 ];
 
-// Функции для открытия чекаута с разными списками товаров
 function openCheckout12() {
   if (Paddle) {
     Paddle.Checkout.open({

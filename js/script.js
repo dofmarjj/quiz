@@ -327,7 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function smoothScrollToElement(id) {
   const element = document.getElementById(id);
   if (element) {
-    const offset = -700; // Высота фиксированного элемента (например, хедер), корректируй по нужде
+    const offset = -700;
     const elementPosition = element.offsetTop;
     const offsetPosition = elementPosition - offset;
 
@@ -338,7 +338,6 @@ function smoothScrollToElement(id) {
   }
 }
 
-// Пример использования
 smoothScrollToElement("plan-cards");
 
 smoothScrollToElement("plan-cards");
