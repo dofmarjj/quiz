@@ -185,10 +185,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cards.forEach((card) => {
     card.addEventListener("click", (event) => {
-      // Проверяем, чтобы не срабатывало на уже активном input
       const radio = card.querySelector(".checkbox-input");
       if (radio) {
         radio.checked = true;
+        // Выполняем вызов функции при клике на карточку
+        openCheckout(itemsList);
       }
     });
   });
