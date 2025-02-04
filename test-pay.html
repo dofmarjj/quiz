@@ -15,6 +15,18 @@
     <button id="buy-button">Подписаться</button>
 
     <script>
+      Paddle.Checkout.open({
+        product: "pri_01jk8a3ee6s11hvava5w7vyczn",
+        successCallback: function (data) {
+          console.log("Успешно:", data);
+        },
+        errorCallback: function (error) {
+          console.error("Ошибка:", error);
+        },
+      });
+    </script>
+
+    <!-- <script>
       // Открытие окна оплаты
       document
         .getElementById("buy-button")
@@ -34,6 +46,6 @@
             },
           });
         });
-    </script>
+    </script> -->
   </body>
 </html>
