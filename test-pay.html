@@ -10,26 +10,28 @@
     <h1>Тестовое подключение Paddle</h1>
     <p>Нажмите на кнопку ниже, чтобы протестировать подключение Paddle.</p>
 
-    <!-- Кнопка для открытия окна с оплатой -->
-    <a
-      href="#"
-      class="paddle_button"
-      data-display-mode="overlay"
-      data-theme="light"
-      data-locale="en"
-      data-items='[{"priceId":"pri_01jk8a7hcsammyrr1njtpphkjq","quantity":1}]'
-      >pay</a
-    >
+    <a href="#" onclick="openCheckout(itemsList)"><b>Sign up now</b></a>
 
-    <script>
-      // Здесь ваш paddle-clienttoken, который вы получили из панели Paddle
-      var clientToken = "test_f794c53b57de18d77dd19aa86bd"; // Замените на настоящий clienttoken
-
-      // Инициализация Paddle
-      Paddle.Setup({
-        vendor: 27173, // Ваш Vendor ID
-        clienttoken: clientToken, // Передаем clienttoken
+    <script type="text/javascript">
+      Paddle.Environment.set("sandbox");
+      Paddle.Initialize({
+        token: "test_7d279f61a3499fed520f7cd8c08", // replace with a client-side token
       });
+
+      // define items
+      let itemsList = [
+        {
+          priceId: "pri_01jk8a7hcsammyrr1njtpphkjq",
+          quantity: 1,
+        },
+      ];
+
+      // open checkout
+      function openCheckout(items) {
+        Paddle.Checkout.open({
+          items: items,
+        });
+      }
     </script>
   </body>
 </html>
