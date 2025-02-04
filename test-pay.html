@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Тестирование подключения с Paddle</title>
+    <title>Тестовое подключение с Paddle</title>
     <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
   </head>
   <body>
@@ -22,12 +22,13 @@
     >
 
     <script>
+      // Здесь ваш paddle-clienttoken, который вы получили из панели Paddle
+      var clientToken = "test_f794c53b57de18d77dd19aa86bd"; // Замените на настоящий clienttoken
+
       // Инициализация Paddle
       Paddle.Setup({
         vendor: 27173, // Ваш Vendor ID
-      });
-      Paddle.Initialize({
-        token: "test_f794c53b57de18d77dd19aa86bd",
+        clienttoken: clientToken, // Передаем clienttoken
       });
     </script>
   </body>
