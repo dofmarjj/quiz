@@ -10,31 +10,17 @@
     <h1>Тестовое подключение Paddle</h1>
     <p>Нажмите на кнопку ниже, чтобы протестировать подключение Paddle.</p>
 
+    <a
+      href="#"
+      data-items='[{"priceId":"pri_01jk8a7hcsammyrr1njtpphkjq","quantity":1}]'></a>
+
     <button id="testButton">Открыть тестовое окно</button>
 
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
     <script>
-      // Инициализация Paddle
-      Paddle.Setup({
-        vendor: 27173, // Ваш Vendor ID
+      Paddle.Initialize({
+        token: "test_f794c53b57de18d77dd19aa86bd", // replace with a client-side token
       });
-
-      // Обработчик нажатия на кнопку для теста
-      document
-        .getElementById("testButton")
-        .addEventListener("click", function () {
-          // Открытие тестового окна Paddle без оплаты
-          Paddle.Checkout.open({
-            product: "pri_01jk8a7hcsammyrr1njtpphkjq", // Используем любой ID продукта
-            title: "Тестовое подключение Paddle",
-            email: "test@example.com", // Укажите email (можно использовать временный)
-            successCallback: function () {
-              console.log("Тестовое подключение прошло успешно");
-            },
-            closeCallback: function () {
-              console.log("Тестовое окно закрыто");
-            },
-          });
-        });
     </script>
   </body>
 </html>
