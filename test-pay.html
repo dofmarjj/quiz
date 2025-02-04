@@ -13,24 +13,40 @@
     <a href="#" onclick="openCheckout(itemsList)"><b>Sign up now</b></a>
 
     <script type="text/javascript">
+      // Устанавливаем среду для Paddle
       Paddle.Environment.set("sandbox");
-      Paddle.Initialize({
-        token: "test_7d279f61a3499fed520f7cd8c08", // replace with a client-side token
-      });
+
+      // Проверка наличия и правильности client token
+      const clientToken = "test_7d279f61a3499fed520f7cd8c08"; // Ваш токен
+
+      if (clientToken) {
+        // Инициализация Paddle с токеном
+        Paddle.Initialize({
+          token: clientToken,
+        });
+
+        console.log("Paddle подключено успешно с токеном:", clientToken);
+      } else {
+        console.error("Ошибка: отсутствует client token");
+      }
 
       // define items
       let itemsList = [
         {
-          priceId: "pri_01jk8y52vwnq75ychb0xz94ekv",
-          quantity: 1,
+          priceId: "pri_01jk8y52vwnq75ychb0xz94ekv", // ID продукта
+          quantity: 1, // Количество товара
         },
       ];
 
       // open checkout
       function openCheckout(items) {
-        Paddle.Checkout.open({
-          items: items,
-        });
+        if (Paddle) {
+          Paddle.Checkout.open({
+            items: items,
+          });
+        } else {
+          alert("Ошибка подключения с Paddle. Пожалуйста, попробуйте позже.");
+        }
       }
     </script>
   </body>
