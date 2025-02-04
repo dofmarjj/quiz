@@ -9,22 +9,36 @@
       // Установка Vendor ID
       Paddle.Setup({ vendor: 27173 }); // Замени на свой Vendor ID
     </script> -->
+    <script>
+      Paddle.Setup({ vendor: 27173 }); // Укажи свой Vendor ID
+    </script>
   </head>
   <body>
     <h1>Оформить подписку</h1>
-    <a href="#!" id="buy">Buy now!</a>
+    <button id="pay-button">Оплатить</button>
 
-    <script src="https://cdn.paddle.com/paddle/paddle.js"></script>
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
     <script type="text/javascript">
-      Paddle.Setup({ vendor: 27173 });
+      Paddle.Initialize({
+        token: "test_f794c53b57de18d77dd19aa86bd", // replace with a client-side token
+      });
     </script>
-    <script type="text/javascript">
-      function openCheckout() {
-        Paddle.Checkout.open({ product: "pri_01jk8a7hcsammyrr1njtpphkjq" });
-      }
+
+    <script>
       document
-        .getElementById("buy")
-        .addEventListener("click", openCheckout, false);
+        .getElementById("pay-button")
+        .addEventListener("click", function () {
+          Paddle.Checkout.open({
+            product: "pri_01jk8a3ee6s11hvava5w7vyczn", // Укажи Product ID
+            email: "test@example.com", // Email покупателя (опционально)
+            successCallback: function (data) {
+              console.log("Успешно:", data);
+            },
+            errorCallback: function (error) {
+              console.error("Ошибка:", error);
+            },
+          });
+        });
     </script>
   </body>
 </html>
