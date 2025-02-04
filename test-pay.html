@@ -22,6 +22,18 @@
     <script>
       Paddle.Initialize({
         token: "test_f794c53b57de18d77dd19aa86bd", // replace with a client-side token
+        checkout: {
+          settings: {
+            displayMode: "inline",
+            variant: "one-page",
+            theme: "light",
+            locale: "en",
+            frameTarget: "checkout-container",
+            frameInitialHeight: "450",
+            frameStyle:
+              "width: 100%; min-width: 312px; background-color: transparent; border: none;",
+          },
+        },
       });
     </script>
   </body>
