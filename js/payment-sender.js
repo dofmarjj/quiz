@@ -1,99 +1,67 @@
-// Telegram bot config
-const TELEGRAM_BOT_TOKEN = "7845261307:AAG26zSzzgwOBXUd3c6ohw0ILYA3gpejyv4";
-const TELEGRAM_CHAT_ID = "-1002168718110";
+// Устанавливаем среду для Paddle
+Paddle.Environment.set("sandbox");
 
-let telegramSent = false;
-const userAnswersPay = {};
+// Проверка наличия и правильности client token
+const clientToken = "test_f794c53b57de18d77dd19aa86bd"; // Ваш токен
 
-async function sendToTelegram() {
-  if (telegramSent) return;
+if (clientToken) {
+  // Инициализация Paddle с токеном
+  Paddle.Initialize({
+    token: clientToken,
+  });
 
-  const message = `📩 Новые ответы:\n\n${JSON.stringify(
-    userAnswersPay,
-    null,
-    2
-  )}`;
-  const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+  console.log("Paddle подключено успешно с токеном:", clientToken);
+} else {
+  console.error("Ошибка: отсутствует client token");
+}
 
-  try {
-    await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message }),
+// Определяем разные списки товаров
+let itemsList12 = [
+  {
+    priceId: "pri_01jk8a7hcsammyrr1njtpphkjq",
+    quantity: 1,
+  },
+];
+let itemsList4 = [
+  {
+    priceId: "pri_01jk8a5n0z464k726q74aqb90s",
+    quantity: 1,
+  },
+];
+let itemsList1 = [
+  {
+    priceId: "pri_01jk8a3ee6s11hvava5w7vyczn",
+    quantity: 1,
+  },
+];
+
+// Функции для открытия чекаута с разными списками товаров
+function openCheckout12() {
+  if (Paddle) {
+    Paddle.Checkout.open({
+      items: itemsList12,
     });
-    console.log("Ответы успешно отправлены в Telegram.");
-    telegramSent = true;
-  } catch (error) {
-    console.error("Ошибка при отправке в Telegram:", error);
+  } else {
+    alert("Ошибка подключения с Paddle. Пожалуйста, попробуйте позже.");
   }
 }
 
-function validatePaymentFields() {
-  const cardholderName = document
-    .querySelector("input[placeholder='John Doe']")
-    .value.trim();
-  const cardNumber = document.querySelector("#card-number").value.trim();
-  const expiryDate = document
-    .querySelector("input[placeholder='MM/YY']")
-    .value.trim();
-  const securityCode = document
-    .querySelector("input[placeholder='***']")
-    .value.trim();
-
-  if (!cardholderName || !cardNumber || !expiryDate || !securityCode) {
-    alert("Пожалуйста, заполните все поля перед оплатой.");
-    return false;
-  }
-  return true;
-}
-
-document.querySelector(".applepay-button").addEventListener("click", () => {
-  userAnswersPay.payment = {
-    status: "Payment successful",
-    method: "Apple Pay",
-    timestamp: new Date().toISOString(),
-  };
-
-  sendToTelegram();
-});
-
-document.querySelector(".payment-button").addEventListener("click", () => {
-  if (!validatePaymentFields()) return;
-  const paymentButton = document.querySelector(".payment-button");
-  const successButton = document.querySelector(".success-button");
-
-  if (paymentButton && successButton) {
-    paymentButton.style.display = "none";
-    successButton.style.display = "block";
-  }
-
-  userAnswersPay.payment = {
-    status: "Card payment successful",
-    method: "Card",
-    timestamp: new Date().toISOString(),
-  };
-
-  sendToTelegram();
-});
-
-window.addEventListener("beforeunload", async () => {
-  if (!telegramSent && Object.keys(userAnswersPay).length > 0) {
-    await sendToTelegram();
-  }
-});
-
-function checkForFinalScreen() {
-  const finalScreen = document.getElementById("screen-28");
-  if (
-    finalScreen &&
-    finalScreen.classList.contains("active") &&
-    !telegramSent
-  ) {
-    sendToTelegram();
+function openCheckout4() {
+  if (Paddle) {
+    Paddle.Checkout.open({
+      items: itemsList4,
+    });
+  } else {
+    alert("Ошибка подключения с Paddle. Пожалуйста, попробуйте позже.");
   }
 }
 
-const observer = new MutationObserver(() => {
-  checkForFinalScreen();
-});
-observer.observe(document.body, { attributes: true, subtree: true });
+function openCheckout1() {
+  if (Paddle) {
+    Paddle.Checkout.open({
+      items: itemsList1,
+    });
+  } else {
+    alert("Ошибка подключения с Paddle. Пожалуйста, попробуйте позже.");
+  }
+}

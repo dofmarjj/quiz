@@ -188,8 +188,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const radio = card.querySelector(".checkbox-input");
       if (radio) {
         radio.checked = true;
-        // Выполняем вызов функции при клике на карточку
-        openCheckout(itemsList);
+
+        // Извлекаем функцию из data-function атрибута
+        const functionName = card.getAttribute("data-function");
+
+        // Вызываем нужную функцию
+        if (typeof window[functionName] === "function") {
+          window[functionName](); // Вызываем функцию
+        }
       }
     });
   });
@@ -316,3 +322,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// scrool element
+function smoothScrollToElement(id) {
+  const element = document.getElementById(id);
+  if (element) {
+    const offset = -700; // Высота фиксированного элемента (например, хедер), корректируй по нужде
+    const elementPosition = element.offsetTop;
+    const offsetPosition = elementPosition - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  }
+}
+
+// Пример использования
+smoothScrollToElement("plan-cards");
+
+smoothScrollToElement("plan-cards");

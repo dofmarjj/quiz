@@ -1200,7 +1200,7 @@ with communication"
         </div>
 
         <div class="plans">
-          <div class="plans-container">
+          <div id="plan-cards" class="plans-container">
             <h2 class="plans-title">
               Your Personalized Relationship Plan is Ready!
             </h2>
@@ -1210,11 +1210,10 @@ with communication"
 
             <div class="plans-card__block">
               <!-- Карточка 1 -->
-              <div class="plan-card">
+              <div class="plan-card" data-function="openCheckout1">
                 <div class="plan-header">
                   <div class="d-flex">
                     <h3 class="plan-title">1-Week Trial</h3>
-                    <!-- <p class="plan-subtitle">6-WEEK PLAN</p> -->
                   </div>
                   <div class="plan-checkbox">
                     <input
@@ -1243,20 +1242,17 @@ with communication"
               </div>
 
               <!-- Карточка 2 -->
-              <div class="plan-card">
-                <div class="plan-badge">Most Popular</div>
+              <div class="plan-card" data-function="openCheckout4">
                 <div class="plan-header">
                   <div class="d-flex">
-                    <h3 class="plan-title mt-20">4-Week Plan</h3>
-                    <!-- <p class="plan-subtitle">6-WEEK PLAN</p> -->
+                    <h3 class="plan-title">4-Week Plan</h3>
                   </div>
                   <div class="plan-checkbox">
                     <input
                       type="radio"
                       name="plan"
                       id="plan-2"
-                      class="checkbox-input"
-                      data-link="./payment/payment-progress-4-week.html" />
+                      class="checkbox-input" />
                     <label for="plan-2" class="checkbox-label"></label>
                   </div>
                 </div>
@@ -1278,19 +1274,17 @@ with communication"
               </div>
 
               <!-- Карточка 3 -->
-              <div class="plan-card">
+              <div class="plan-card" data-function="openCheckout12">
                 <div class="plan-header">
                   <div class="d-flex">
                     <h3 class="plan-title">12-Week Plan</h3>
-                    <!-- <p class="plan-subtitle">6-WEEK PLAN</p> -->
                   </div>
                   <div class="plan-checkbox">
                     <input
                       type="radio"
                       name="plan"
                       id="plan-3"
-                      class="checkbox-input"
-                      data-link="./payment/payment-progress-12-week.html" />
+                      class="checkbox-input" />
                     <label for="plan-3" class="checkbox-label"></label>
                   </div>
                 </div>
@@ -1361,7 +1355,9 @@ with communication"
         </div>
 
         <!-- Кнопка перехода -->
-        <button class="go-button btn-start" onclick="navigateToLink()">
+        <button
+          class="go-button btn-start"
+          onclick="smoothScrollToElement('plan-cards')">
           start your journey today
         </button>
 
@@ -1448,43 +1444,8 @@ with communication"
     </div>
 
     <script src="./js/script.js"></script>
-    <script>
-      // Устанавливаем среду для Paddle
-      Paddle.Environment.set("sandbox");
+    <script src="./js/payment-sender.js"></script>
 
-      // Проверка наличия и правильности client token
-      const clientToken = "test_f794c53b57de18d77dd19aa86bd"; // Ваш токен
-
-      if (clientToken) {
-        // Инициализация Paddle с токеном
-        Paddle.Initialize({
-          token: clientToken,
-        });
-
-        console.log("Paddle подключено успешно с токеном:", clientToken);
-      } else {
-        console.error("Ошибка: отсутствует client token");
-      }
-
-      // define items
-      let itemsList = [
-        {
-          priceId: "pri_01jk8a7hcsammyrr1njtpphkjq", // ID продукта
-          quantity: 1, // Количество товара
-        },
-      ];
-
-      // open checkout
-      function openCheckout(items) {
-        if (Paddle) {
-          Paddle.Checkout.open({
-            items: items,
-          });
-        } else {
-          alert("Ошибка подключения с Paddle. Пожалуйста, попробуйте позже.");
-        }
-      }
-    </script>
     <!-- <script type="module" src="./js/send-tg.js"></script> -->
   </body>
 </html>
