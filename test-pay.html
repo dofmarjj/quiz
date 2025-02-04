@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Интеграция с Paddle</title>
+    <title>Тестирование подключения с Paddle</title>
     <script src="https://cdn.paddle.com/paddle/paddle.js"></script>
   </head>
   <body>
-    <h1>Оплата через Paddle</h1>
-    <p>Для продолжения оплаты выберите план ниже:</p>
+    <h1>Тестовое подключение Paddle</h1>
+    <p>Нажмите на кнопку ниже, чтобы протестировать подключение Paddle.</p>
 
-    <button id="payButton">Оплатить</button>
+    <button id="testButton">Открыть тестовое окно</button>
 
     <script>
       // Инициализация Paddle
@@ -18,20 +18,20 @@
         vendor: 27173, // Ваш Vendor ID
       });
 
-      // Обработчик нажатия на кнопку
+      // Обработчик нажатия на кнопку для теста
       document
-        .getElementById("payButton")
+        .getElementById("testButton")
         .addEventListener("click", function () {
-          // Открытие окна оплаты с нужным ID продукта
+          // Открытие тестового окна Paddle без оплаты
           Paddle.Checkout.open({
-            product: "pri_01jk8a7hcsammyrr1njtpphkjq", // ID продукта для плана на 12 недель
-            title: "AI Relationship Assistant - 12 недель", // Название продукта
-            email: "example@example.com", // Укажите email пользователя, если нужно
+            product: "pri_01jk8a7hcsammyrr1njtpphkjq", // Используем любой ID продукта
+            title: "Тестовое подключение Paddle",
+            email: "test@example.com", // Укажите email (можно использовать временный)
             successCallback: function () {
-              console.log("Оплата прошла успешно");
+              console.log("Тестовое подключение прошло успешно");
             },
             closeCallback: function () {
-              console.log("Платежное окно закрыто");
+              console.log("Тестовое окно закрыто");
             },
           });
         });
