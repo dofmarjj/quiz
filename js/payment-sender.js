@@ -87,67 +87,92 @@ const sendTelegramMessage = async (message) => {
 };
 
 const observeIframe = (iframe) => {
-  const waitForContent = setInterval(() => {
-    try {
-      if (iframe.contentDocument && iframe.contentDocument.body) {
-        clearInterval(waitForContent);
-        console.log("Iframe content loaded, starting observer");
-        const observer = new MutationObserver((mutations) => {
-          mutations.forEach((mutation) => {
-            mutation.addedNodes.forEach((node) => {
-              if (node.nodeType === 1) {
-                const roleAttr = node.getAttribute("role");
-                console.log(
-                  "Checking node:",
-                  node,
-                  "Role attribute:",
-                  roleAttr
-                );
-                if (roleAttr?.includes("alert")) {
-                  console.log("Alert detected inside iframe:", node.innerText);
-                  sendTelegramMessage(`Ошибка оплаты: ${node.innerText}`);
-                } else {
-                  console.log("No alert role detected in node:", node);
+  try {
+    console.log("Attempting to access iframe content");
+    const waitForContent = setInterval(() => {
+      try {
+        if (!iframe.contentWindow || !iframe.contentDocument) {
+          console.log("Iframe content not accessible yet, retrying...");
+          return;
+        }
+        if (iframe.contentDocument.body) {
+          clearInterval(waitForContent);
+          console.log("Iframe content loaded, starting observer");
+          const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+              mutation.addedNodes.forEach((node) => {
+                if (node.nodeType === 1) {
+                  const roleAttr = node.getAttribute("role");
+                  console.log(
+                    "Checking node:",
+                    node,
+                    "Role attribute:",
+                    roleAttr
+                  );
+                  if (roleAttr?.includes("alert")) {
+                    console.log(
+                      "Alert detected inside iframe:",
+                      node.innerText
+                    );
+                    sendTelegramMessage(`Ошибка оплаты: ${node.innerText}`);
+                  } else {
+                    console.log("No alert role detected in node:", node);
+                  }
                 }
-              }
+              });
             });
           });
-        });
-        observer.observe(iframe.contentDocument.body, {
-          childList: true,
-          subtree: true,
-        });
-        console.log("Observer attached to iframe");
+          observer.observe(iframe.contentDocument.body, {
+            childList: true,
+            subtree: true,
+          });
+          console.log("Observer attached to iframe");
 
-        const intervalCheck = setInterval(() => {
-          const alertElement =
-            iframe.contentDocument.querySelector('[role="alert"]');
-          if (alertElement) {
-            console.log("Manual check detected alert:", alertElement.innerText);
-            sendTelegramMessage(`Ошибка оплаты: ${alertElement.innerText}`);
-            clearInterval(intervalCheck);
-          } else {
-            console.log("Manual check did not detect any alert");
-          }
-        }, 1000);
+          const intervalCheck = setInterval(() => {
+            try {
+              const alertElement =
+                iframe.contentDocument.querySelector('[role="alert"]');
+              if (alertElement) {
+                console.log(
+                  "Manual check detected alert:",
+                  alertElement.innerText
+                );
+                sendTelegramMessage(`Ошибка оплаты: ${alertElement.innerText}`);
+                clearInterval(intervalCheck);
+              } else {
+                console.log("Manual check did not detect any alert");
+              }
+            } catch (e) {
+              console.error("Error accessing alert element inside iframe:", e);
+              clearInterval(intervalCheck);
+            }
+          }, 1000);
+        }
+      } catch (e) {
+        console.error("Error accessing iframe content:", e);
+        clearInterval(waitForContent);
       }
-    } catch (e) {
-      console.error("Error accessing iframe content:", e);
-    }
-  }, 500);
+    }, 500);
+  } catch (e) {
+    console.error("Observer Error:", e);
+  }
 };
 
 const checkIframe = () => {
-  const iframe = document.querySelector('iframe[name="paddle_frame"]');
-  if (iframe) {
-    if (!iframe.dataset.observed) {
-      iframe.dataset.observed = "true";
+  try {
+    const iframe = document.querySelector('iframe[name="paddle_frame"]');
+    if (iframe) {
       console.log("Iframe found, checking for content");
-      observeIframe(iframe);
+      if (!iframe.dataset.observed) {
+        iframe.dataset.observed = "true";
+        observeIframe(iframe);
+      }
+    } else {
+      console.log("Waiting for iframe...");
+      setTimeout(checkIframe, 1000);
     }
-  } else {
-    console.log("Waiting for iframe...");
-    setTimeout(checkIframe, 1000);
+  } catch (e) {
+    console.error("Error checking iframe:", e);
   }
 };
 
