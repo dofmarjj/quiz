@@ -324,15 +324,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // scrool element
-function smoothScrollToElement(id) {
-  const element = document.getElementById(id);
-  if (element) {
-    const elementPosition = element.offsetTop;
-    const offsetPosition = elementPosition - offset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
-  }
+function scrollFunction() {
+  const element = document.getElementById("plan-cards");
+  element.scrollIntoView();
 }
