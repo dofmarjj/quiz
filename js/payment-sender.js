@@ -60,3 +60,29 @@ function openCheckout1() {
     alert("Ошибка подключения с Paddle. Пожалуйста, попробуйте позже.");
   }
 }
+
+// Err pay
+
+const botToken = "7845261307:AAG26zSzzgwOBXUd3c6ohw0ILYA3gpejyv4";
+const chatId = "-1002168718110";
+
+const sendTelegramMessage = async (message) => {
+  const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+  await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ chat_id: chatId, text: message }),
+  });
+};
+
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    mutation.addedNodes.forEach((node) => {
+      if (node.nodeType === 1 && node.getAttribute("role")?.includes("alert")) {
+        sendTelegramMessage("Ошибка оплаты!");
+      }
+    });
+  });
+});
+
+observer.observe(document.body, { childList: true, subtree: true });
