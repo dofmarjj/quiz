@@ -89,12 +89,13 @@ const observeIframe = (iframe) => {
         const observer = new MutationObserver((mutations) => {
           mutations.forEach((mutation) => {
             mutation.addedNodes.forEach((node) => {
-              if (
-                node.nodeType === 1 &&
-                node.getAttribute("role")?.includes("alert")
-              ) {
-                console.log("Alert detected inside iframe:", node.innerText);
-                sendTelegramMessage(`Ошибка оплаты: ${node.innerText}`);
+              if (node.nodeType === 1) {
+                const roleAttr = node.getAttribute("role");
+                console.log("Found node:", node, "Role attribute:", roleAttr);
+                if (roleAttr?.includes("alert")) {
+                  console.log("Alert detected inside iframe:", node.innerText);
+                  sendTelegramMessage(`Ошибка оплаты: ${node.innerText}`);
+                }
               }
             });
           });
