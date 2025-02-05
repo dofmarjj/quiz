@@ -177,3 +177,11 @@ const checkIframe = () => {
 };
 
 checkIframe();
+
+window.addEventListener("message", (event) => {
+  if (event.origin.includes("paddle.com")) {
+    // Проверка на правильный источник
+    console.log("Message from iframe:", event.data);
+    sendTelegramMessage(`Ошибка оплаты: ${JSON.stringify(event.data)}`);
+  }
+});
