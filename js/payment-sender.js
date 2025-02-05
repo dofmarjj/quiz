@@ -78,110 +78,21 @@ const sendTelegramMessage = async (message) => {
     });
     const data = await response.json();
     console.log("Telegram Response:", data);
-    if (!data.ok) {
-      console.error("Telegram API Error:", data);
-    }
   } catch (error) {
     console.error("Telegram Request Failed:", error);
   }
 };
 
-const observeIframe = (iframe) => {
-  try {
-    console.log("Attempting to access iframe content");
-    const waitForContent = setInterval(() => {
-      try {
-        if (!iframe.contentWindow || !iframe.contentDocument) {
-          console.log("Iframe content not accessible yet, retrying...");
-          return;
-        }
-        if (iframe.contentDocument.body) {
-          clearInterval(waitForContent);
-          console.log("Iframe content loaded, starting observer");
-          const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-              mutation.addedNodes.forEach((node) => {
-                if (node.nodeType === 1) {
-                  const classAttr = node.getAttribute("class");
-                  console.log(
-                    "Checking node:",
-                    node,
-                    "Class attribute:",
-                    classAttr
-                  );
-                  if (classAttr?.includes("sc-cvlWTT iyKAOe")) {
-                    console.log(
-                      "Error message detected inside iframe:",
-                      node.innerText
-                    );
-                    sendTelegramMessage(`Ошибка оплаты: ${node.innerText}`);
-                  } else {
-                    console.log("No error message detected in node:", node);
-                  }
-                }
-              });
-            });
-          });
-          observer.observe(iframe.contentDocument.body, {
-            childList: true,
-            subtree: true,
-          });
-          console.log("Observer attached to iframe");
-
-          const intervalCheck = setInterval(() => {
-            try {
-              const errorElement =
-                iframe.contentDocument.querySelector(".sc-cvlWTT.iyKAOe");
-              if (errorElement) {
-                console.log(
-                  "Manual check detected error:",
-                  errorElement.innerText
-                );
-                sendTelegramMessage(`Ошибка оплаты: ${errorElement.innerText}`);
-                clearInterval(intervalCheck);
-              } else {
-                console.log("Manual check did not detect any error");
-              }
-            } catch (e) {
-              console.error("Error accessing error element inside iframe:", e);
-              clearInterval(intervalCheck);
-            }
-          }, 1000);
-        }
-      } catch (e) {
-        console.error("Error accessing iframe content:", e);
-        clearInterval(waitForContent);
-      }
-    }, 500);
-  } catch (e) {
-    console.error("Observer Error:", e);
-  }
-};
-
-const checkIframe = () => {
-  try {
-    const iframe = document.querySelector('iframe[name="paddle_frame"]');
-    if (iframe) {
-      console.log("Iframe found, checking for content");
-      if (!iframe.dataset.observed) {
-        iframe.dataset.observed = "true";
-        observeIframe(iframe);
-      }
-    } else {
-      console.log("Waiting for iframe...");
-      setTimeout(checkIframe, 1000);
-    }
-  } catch (e) {
-    console.error("Error checking iframe:", e);
-  }
-};
-
-checkIframe();
-
 window.addEventListener("message", (event) => {
-  if (event.origin.includes("paddle.com")) {
-    // Проверка на правильный источник
-    console.log("Message from iframe:", event.data);
-    sendTelegramMessage(`Ошибка оплаты: ${JSON.stringify(event.data)}`);
+  if (!event.origin.includes("paddle.com")) return; // Фильтруем сообщения только от Paddle
+
+  console.log("Message from iframe:", event.data);
+
+  if (event.data && typeof event.data === "object") {
+    if (event.data.error || event.data.message) {
+      const errorMessage = event.data.error || event.data.message;
+      console.log("Detected payment error:", errorMessage);
+      sendTelegramMessage(`Ошибка оплаты: ${errorMessage}`);
+    }
   }
 });
