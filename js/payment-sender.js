@@ -75,17 +75,33 @@ const sendTelegramMessage = async (message) => {
   });
 };
 
-const observer = new MutationObserver((mutations) => {
-  mutations.forEach((mutation) => {
-    mutation.addedNodes.forEach((node) => {
-      if (
-        node.nodeType === 1 &&
-        node.getAttribute("data-testid")?.includes("form_error_cardNumber")
-      ) {
-        sendTelegramMessage("Ошибка оплаты!");
-      }
+const observeIframe = (iframe) => {
+  try {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (
+            node.nodeType === 1 &&
+            node.getAttribute("role")?.includes("alert")
+          ) {
+            sendTelegramMessage("Ошибка оплаты!");
+          }
+        });
+      });
     });
-  });
-});
+    observer.observe(iframe.contentDocument.body, {
+      childList: true,
+      subtree: true,
+    });
+  } catch (e) {}
+};
 
-observer.observe(document.body, { childList: true, subtree: true });
+const checkIframe = () => {
+  const iframe = document.querySelector('iframe[name="paddle_frame"]');
+  if (iframe) {
+    iframe.onload = () => observeIframe(iframe);
+  }
+};
+
+checkIframe();
+document.addEventListener("DOMContentLoaded", checkIframe);
