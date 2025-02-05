@@ -86,12 +86,18 @@ const observeIframe = (iframe) => {
     const checkLoaded = setInterval(() => {
       if (iframe.contentDocument && iframe.contentDocument.body) {
         clearInterval(checkLoaded);
+        console.log("Iframe content loaded, starting observer");
         const observer = new MutationObserver((mutations) => {
           mutations.forEach((mutation) => {
             mutation.addedNodes.forEach((node) => {
               if (node.nodeType === 1) {
                 const roleAttr = node.getAttribute("role");
-                console.log("Found node:", node, "Role attribute:", roleAttr);
+                console.log(
+                  "Checking node:",
+                  node,
+                  "Role attribute:",
+                  roleAttr
+                );
                 if (roleAttr?.includes("alert")) {
                   console.log("Alert detected inside iframe:", node.innerText);
                   sendTelegramMessage(`Ошибка оплаты: ${node.innerText}`);
@@ -105,6 +111,16 @@ const observeIframe = (iframe) => {
           subtree: true,
         });
         console.log("Observer attached to iframe");
+
+        const intervalCheck = setInterval(() => {
+          const alertElement =
+            iframe.contentDocument.querySelector('[role="alert"]');
+          if (alertElement) {
+            console.log("Manual check detected alert:", alertElement.innerText);
+            sendTelegramMessage(`Ошибка оплаты: ${alertElement.innerText}`);
+            clearInterval(intervalCheck);
+          }
+        }, 1000);
       }
     }, 500);
   } catch (e) {
