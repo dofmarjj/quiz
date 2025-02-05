@@ -83,24 +83,29 @@ const sendTelegramMessage = async (message) => {
 
 const observeIframe = (iframe) => {
   try {
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-          if (
-            node.nodeType === 1 &&
-            node.getAttribute("role")?.includes("alert")
-          ) {
-            console.log("Alert detected inside iframe");
-            sendTelegramMessage("Ошибка оплаты!");
-          }
+    const checkLoaded = setInterval(() => {
+      if (iframe.contentDocument && iframe.contentDocument.body) {
+        clearInterval(checkLoaded);
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            mutation.addedNodes.forEach((node) => {
+              if (
+                node.nodeType === 1 &&
+                node.getAttribute("role")?.includes("alert")
+              ) {
+                console.log("Alert detected inside iframe");
+                sendTelegramMessage("Ошибка оплаты!");
+              }
+            });
+          });
         });
-      });
-    });
-    observer.observe(iframe.contentDocument.body, {
-      childList: true,
-      subtree: true,
-    });
-    console.log("Observer attached to iframe");
+        observer.observe(iframe.contentDocument.body, {
+          childList: true,
+          subtree: true,
+        });
+        console.log("Observer attached to iframe");
+      }
+    }, 500);
   } catch (e) {
     console.error("Observer Error:", e);
   }
@@ -111,7 +116,7 @@ const checkIframe = () => {
   if (iframe) {
     if (!iframe.dataset.observed) {
       iframe.dataset.observed = "true";
-      console.log("Iframe found and observer attached");
+      console.log("Iframe found, waiting for load");
       iframe.onload = () => observeIframe(iframe);
       observeIframe(iframe);
     }
