@@ -87,10 +87,10 @@ const sendTelegramMessage = async (message) => {
 };
 
 const observeIframe = (iframe) => {
-  try {
-    const checkLoaded = setInterval(() => {
+  const waitForContent = setInterval(() => {
+    try {
       if (iframe.contentDocument && iframe.contentDocument.body) {
-        clearInterval(checkLoaded);
+        clearInterval(waitForContent);
         console.log("Iframe content loaded, starting observer");
         const observer = new MutationObserver((mutations) => {
           mutations.forEach((mutation) => {
@@ -127,10 +127,10 @@ const observeIframe = (iframe) => {
           }
         }, 1000);
       }
-    }, 500);
-  } catch (e) {
-    console.error("Observer Error:", e);
-  }
+    } catch (e) {
+      console.error("Error accessing iframe content:", e);
+    }
+  }, 500);
 };
 
 const checkIframe = () => {
@@ -138,8 +138,7 @@ const checkIframe = () => {
   if (iframe) {
     if (!iframe.dataset.observed) {
       iframe.dataset.observed = "true";
-      console.log("Iframe found, waiting for load");
-      iframe.onload = () => observeIframe(iframe);
+      console.log("Iframe found, checking for content");
       observeIframe(iframe);
     }
   } else {
