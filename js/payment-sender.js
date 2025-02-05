@@ -68,11 +68,17 @@ const chatId = "-1002168718110";
 
 const sendTelegramMessage = async (message) => {
   const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-  await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ chat_id: chatId, text: message }),
-  });
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: chatId, text: message }),
+    });
+    const data = await response.json();
+    console.log("Telegram Response:", data);
+  } catch (error) {
+    console.error("Telegram Error:", error);
+  }
 };
 
 const observeIframe = (iframe) => {
@@ -84,6 +90,7 @@ const observeIframe = (iframe) => {
             node.nodeType === 1 &&
             node.getAttribute("role")?.includes("alert")
           ) {
+            console.log("Alert detected inside iframe");
             sendTelegramMessage("Ошибка оплаты!");
           }
         });
@@ -93,13 +100,21 @@ const observeIframe = (iframe) => {
       childList: true,
       subtree: true,
     });
-  } catch (e) {}
+    console.log("Observer attached to iframe");
+  } catch (e) {
+    console.error("Observer Error:", e);
+  }
 };
 
 const checkIframe = () => {
   const iframe = document.querySelector('iframe[name="paddle_frame"]');
   if (iframe) {
-    iframe.onload = () => observeIframe(iframe);
+    iframe.onload = () => {
+      console.log("Iframe loaded");
+      observeIframe(iframe);
+    };
+  } else {
+    console.log("Iframe not found");
   }
 };
 
