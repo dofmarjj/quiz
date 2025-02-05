@@ -109,14 +109,16 @@ const observeIframe = (iframe) => {
 const checkIframe = () => {
   const iframe = document.querySelector('iframe[name="paddle_frame"]');
   if (iframe) {
-    iframe.onload = () => {
-      console.log("Iframe loaded");
+    if (!iframe.dataset.observed) {
+      iframe.dataset.observed = "true";
+      console.log("Iframe found and observer attached");
+      iframe.onload = () => observeIframe(iframe);
       observeIframe(iframe);
-    };
+    }
   } else {
-    console.log("Iframe not found");
+    console.log("Waiting for iframe...");
+    setTimeout(checkIframe, 1000);
   }
 };
 
 checkIframe();
-document.addEventListener("DOMContentLoaded", checkIframe);
