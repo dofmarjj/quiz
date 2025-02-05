@@ -327,7 +327,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function smoothScrollToElement(id) {
   const element = document.getElementById(id);
   if (element) {
-    const offset = -700;
     const elementPosition = element.offsetTop;
     const offsetPosition = elementPosition - offset;
 
