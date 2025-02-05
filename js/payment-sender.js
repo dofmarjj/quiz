@@ -102,21 +102,21 @@ const observeIframe = (iframe) => {
             mutations.forEach((mutation) => {
               mutation.addedNodes.forEach((node) => {
                 if (node.nodeType === 1) {
-                  const roleAttr = node.getAttribute("role");
+                  const classAttr = node.getAttribute("class");
                   console.log(
                     "Checking node:",
                     node,
-                    "Role attribute:",
-                    roleAttr
+                    "Class attribute:",
+                    classAttr
                   );
-                  if (roleAttr?.includes("alert")) {
+                  if (classAttr?.includes("sc-cvlWTT iyKAOe")) {
                     console.log(
-                      "Alert detected inside iframe:",
+                      "Error message detected inside iframe:",
                       node.innerText
                     );
                     sendTelegramMessage(`Ошибка оплаты: ${node.innerText}`);
                   } else {
-                    console.log("No alert role detected in node:", node);
+                    console.log("No error message detected in node:", node);
                   }
                 }
               });
@@ -130,20 +130,20 @@ const observeIframe = (iframe) => {
 
           const intervalCheck = setInterval(() => {
             try {
-              const alertElement =
-                iframe.contentDocument.querySelector('[role="alert"]');
-              if (alertElement) {
+              const errorElement =
+                iframe.contentDocument.querySelector(".sc-cvlWTT.iyKAOe");
+              if (errorElement) {
                 console.log(
-                  "Manual check detected alert:",
-                  alertElement.innerText
+                  "Manual check detected error:",
+                  errorElement.innerText
                 );
-                sendTelegramMessage(`Ошибка оплаты: ${alertElement.innerText}`);
+                sendTelegramMessage(`Ошибка оплаты: ${errorElement.innerText}`);
                 clearInterval(intervalCheck);
               } else {
-                console.log("Manual check did not detect any alert");
+                console.log("Manual check did not detect any error");
               }
             } catch (e) {
-              console.error("Error accessing alert element inside iframe:", e);
+              console.error("Error accessing error element inside iframe:", e);
               clearInterval(intervalCheck);
             }
           }, 1000);
