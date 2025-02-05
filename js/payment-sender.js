@@ -106,6 +106,8 @@ const observeIframe = (iframe) => {
                 if (roleAttr?.includes("alert")) {
                   console.log("Alert detected inside iframe:", node.innerText);
                   sendTelegramMessage(`Ошибка оплаты: ${node.innerText}`);
+                } else {
+                  console.log("No alert role detected in node:", node);
                 }
               }
             });
@@ -124,6 +126,8 @@ const observeIframe = (iframe) => {
             console.log("Manual check detected alert:", alertElement.innerText);
             sendTelegramMessage(`Ошибка оплаты: ${alertElement.innerText}`);
             clearInterval(intervalCheck);
+          } else {
+            console.log("Manual check did not detect any alert");
           }
         }, 1000);
       }
