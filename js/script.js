@@ -326,5 +326,5 @@ document.addEventListener("DOMContentLoaded", () => {
 // scrool element
 function scrollFunction() {
   const element = document.getElementById("plan-cards");
-  element.scrollIntoView();
+  element.scrollIntoView({ behavior: "smooth" });
 }
