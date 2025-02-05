@@ -68,16 +68,21 @@ const chatId = "-1002168718110";
 
 const sendTelegramMessage = async (message) => {
   const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+  const payload = { chat_id: chatId, text: message };
+  console.log("Attempting to send message to Telegram:", payload);
   try {
     const response = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: chatId, text: message }),
+      body: JSON.stringify(payload),
     });
     const data = await response.json();
     console.log("Telegram Response:", data);
+    if (!data.ok) {
+      console.error("Telegram API Error:", data);
+    }
   } catch (error) {
-    console.error("Telegram Error:", error);
+    console.error("Telegram Request Failed:", error);
   }
 };
 

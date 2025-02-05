@@ -337,7 +337,3 @@ function smoothScrollToElement(id) {
     });
   }
 }
-
-smoothScrollToElement("plan-cards");
-
-smoothScrollToElement("plan-cards");
