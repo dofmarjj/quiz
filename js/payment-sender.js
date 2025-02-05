@@ -78,7 +78,10 @@ const sendTelegramMessage = async (message) => {
 const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
     mutation.addedNodes.forEach((node) => {
-      if (node.nodeType === 1 && node.getAttribute("role")?.includes("alert")) {
+      if (
+        node.nodeType === 1 &&
+        node.getAttribute("data-testid")?.includes("form_error_cardNumber")
+      ) {
         sendTelegramMessage("Ошибка оплаты!");
       }
     });
