@@ -93,8 +93,8 @@ const observeIframe = (iframe) => {
                 node.nodeType === 1 &&
                 node.getAttribute("role")?.includes("alert")
               ) {
-                console.log("Alert detected inside iframe");
-                sendTelegramMessage("Ошибка оплаты!");
+                console.log("Alert detected inside iframe:", node.innerText);
+                sendTelegramMessage(`Ошибка оплаты: ${node.innerText}`);
               }
             });
           });
