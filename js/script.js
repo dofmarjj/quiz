@@ -161,23 +161,23 @@ document.addEventListener("DOMContentLoaded", () => {
   observeActiveClass();
 });
 
-function navigateToLink() {
-  const cards = document.querySelectorAll(".plan-card");
-  let selectedLink = null;
+// function navigateToLink() {
+//   const cards = document.querySelectorAll(".plan-card");
+//   let selectedLink = null;
 
-  cards.forEach((card) => {
-    const radio = card.querySelector(".checkbox-input");
-    if (radio && radio.checked) {
-      selectedLink = radio.getAttribute("data-link");
-    }
-  });
+//   cards.forEach((card) => {
+//     const radio = card.querySelector(".checkbox-input");
+//     if (radio && radio.checked) {
+//       selectedLink = radio.getAttribute("data-link");
+//     }
+//   });
 
-  if (selectedLink) {
-    window.location.href = selectedLink;
-  } else {
-    alert("Please select a plan first.");
-  }
-}
+//   if (selectedLink) {
+//     window.location.href = selectedLink;
+//   } else {
+//     alert("Please select a plan first.");
+//   }
+// }
 
 // Добавляем клик на всю карточку для выбора radio
 document.addEventListener("DOMContentLoaded", () => {
@@ -189,12 +189,25 @@ document.addEventListener("DOMContentLoaded", () => {
       if (radio) {
         radio.checked = true;
 
-        // Извлекаем функцию из data-function атрибута
-        const functionName = card.getAttribute("data-function");
+        // Определяем ссылку по цене
+        let url = "";
+        if (
+          card.querySelector(".price-current").textContent.trim() === "$6.93"
+        ) {
+          url = "https://buy.stripe.com/5kAg1Y6o2d2w9xu0tb";
+        } else if (
+          card.querySelector(".price-current").textContent.trim() === "$15.95"
+        ) {
+          url = "https://buy.stripe.com/00gg1YaEi4w02523Fo";
+        } else if (
+          card.querySelector(".price-current").textContent.trim() === "$36.55"
+        ) {
+          url = "https://buy.stripe.com/fZe174bIm5A49xu3Fp";
+        }
 
-        // Вызываем нужную функцию
-        if (typeof window[functionName] === "function") {
-          window[functionName](); // Вызываем функцию
+        // Если ссылка найдена, переходим
+        if (url) {
+          window.location.href = url;
         }
       }
     });
